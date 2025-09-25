@@ -3,6 +3,7 @@
 
 import { colors } from "@/assets/css/global.module";
 import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
 export interface Props {
   children: React.ReactNode;
@@ -24,9 +25,8 @@ export default function RText({
   dark,
 }: Props) {
   return (
-    <p
+    <TextContainer
       css={[
-        TextContainer,
         bold && TextBold,
         h1 && TextH1,
         h2 && TextH2,
@@ -36,11 +36,12 @@ export default function RText({
       ]}
     >
       {children}
-    </p>
+    </TextContainer>
   );
 }
 
-const TextContainer = css`
+// Using 'styled.div' instead of 'CSS' means TextContainer was the mother element of this components.
+const TextContainer = styled.div`
   margin: 0;
   font-size: 16px;
   line-height: 16px;
@@ -48,6 +49,7 @@ const TextContainer = css`
   color: ${colors.white};
 `;
 
+// All CSS values follow CamelCase naming rules to prevent confusion with React states.
 const TextBold = css`
   font-weight: 600;
 `;

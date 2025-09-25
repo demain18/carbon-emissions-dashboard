@@ -23,9 +23,8 @@ export default function RBox({
   paddingRight = 0,
 }: Props) {
   return (
-    <div
+    <BoxContainer
       css={[
-        container,
         css`
           padding: ${padding}px;
           ${!padding &&
@@ -39,12 +38,12 @@ export default function RBox({
       ]}
     >
       {children}
-    </div>
+    </BoxContainer>
   );
 }
 
-const container = css`
-  background-color: ${colors.cardNavy};
+const BoxContainer = styled.div`
+  background-color: ${colors.white};
   border: 1px solid ${colors.borderGray};
   border-radius: 8px;
 `;
