@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 "use client";
 
-import { colors } from "@/assets/css/global.module";
+import { colors } from "@/public/css/global.module";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 

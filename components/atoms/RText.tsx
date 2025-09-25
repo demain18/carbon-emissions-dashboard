@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 "use client";
 
-import { colors } from "@/assets/css/global.module";
+import { colors } from "@/public/css/global.module";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
@@ -13,6 +13,7 @@ export interface Props {
   sm?: boolean;
   xsm?: boolean;
   dark?: boolean;
+  inter?: boolean;
 }
 
 export default function RText({
@@ -23,6 +24,7 @@ export default function RText({
   sm,
   xsm,
   dark,
+  inter,
 }: Props) {
   return (
     <TextContainer
@@ -33,6 +35,7 @@ export default function RText({
         sm && TextSmall,
         xsm && TextExtraSmall,
         dark && TextDark,
+        inter && TextFamilyInter,
       ]}
     >
       {children}
@@ -51,7 +54,7 @@ const TextContainer = styled.div`
 
 // All CSS values follow CamelCase naming rules to prevent confusion with React states.
 const TextBold = css`
-  font-weight: 600;
+  font-weight: 500;
 `;
 
 const TextH1 = css`
@@ -76,4 +79,8 @@ const TextExtraSmall = css`
 
 const TextDark = css`
   color: black;
+`;
+
+const TextFamilyInter = css`
+  font-family: Inter;
 `;

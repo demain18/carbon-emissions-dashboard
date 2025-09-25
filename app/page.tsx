@@ -5,24 +5,21 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import RText from "@/components/atoms/RText";
 import RBox from "@/components/atoms/RBox";
-import { colors } from "@/assets/css/global.module";
+import { colors } from "@/public/css/global.module";
 import React from "react";
+import Logo from "@/components/molecules/Logo";
 
 export interface Props {}
 
 export default function Page({ ...rest }: Props) {
   return (
     <Container>
-      <Navigator
-        css={css`
-          /* Navigator Element Size Pinned */
-        `}
-      >
+      <Navigator>
         <RText>Navigator</RText>
       </Navigator>
       <MainScreen>
         <LogoWrap>
-          <RText>Logo</RText>
+          <Logo />
         </LogoWrap>
         <Dashboard>
           <Board>
@@ -44,15 +41,13 @@ const Container = styled.div`
 `;
 
 const Split = css`
-  border: 1px solid #ffffff30;
+  border: 1px solid #ffffff25;
   box-sizing: border-box;
 `;
 
 const Navigator = styled.div`
   ${Split}
   width: 100px;
-  /* min-width: 100px;
-  max-width: 100px; */
   height: 100%;
   flex-shrink: 0;
 `;
@@ -68,7 +63,7 @@ const MainScreen = styled.div`
 const LogoWrap = styled.div`
   ${Split}
   width: 100%;
-  height: 120px;
+  padding: 38px;
 `;
 
 const Dashboard = styled.div`
