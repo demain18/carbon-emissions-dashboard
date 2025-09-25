@@ -17,7 +17,7 @@ export default function Logo({}: Props) {
         height={50}
         alt="Logo"
       />
-      <RText h2 bold inter>
+      <RText h2 bold inter stick>
         HanaLoop
         <br /> Carbon Emissions Tracking
       </RText>

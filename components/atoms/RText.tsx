@@ -14,6 +14,7 @@ export interface Props {
   xsm?: boolean;
   dark?: boolean;
   inter?: boolean;
+  stick?: boolean;
 }
 
 export default function RText({
@@ -25,6 +26,7 @@ export default function RText({
   xsm,
   dark,
   inter,
+  stick,
 }: Props) {
   return (
     <TextContainer
@@ -36,6 +38,7 @@ export default function RText({
         xsm && TextExtraSmall,
         dark && TextDark,
         inter && TextFamilyInter,
+        stick && TextStick,
       ]}
     >
       {children}
@@ -47,7 +50,7 @@ export default function RText({
 const TextContainer = styled.div`
   margin: 0;
   font-size: 16px;
-  line-height: 16px;
+  line-height: 1.3;
   font-weight: 400;
   color: ${colors.white};
 `;
@@ -59,22 +62,18 @@ const TextBold = css`
 
 const TextH1 = css`
   font-size: 36px;
-  line-height: 36px;
 `;
 
 const TextH2 = css`
   font-size: 24px;
-  line-height: 24px;
 `;
 
 const TextSmall = css`
   font-size: 12px;
-  line-height: 12px;
 `;
 
 const TextExtraSmall = css`
   font-size: 10px;
-  line-height: 10px;
 `;
 
 const TextDark = css`
@@ -83,4 +82,8 @@ const TextDark = css`
 
 const TextFamilyInter = css`
   font-family: Inter;
+`;
+
+const TextStick = css`
+  line-height: 1;
 `;

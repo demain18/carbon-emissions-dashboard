@@ -4,10 +4,11 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import RText from "@/components/atoms/RText";
-import RBox from "@/components/atoms/RBox";
 import { colors } from "@/public/css/global.module";
 import React from "react";
 import Logo from "@/components/molecules/Logo";
+import StatusBox from "@/components/molecules/StatusBox";
+import Status from "@/components/organisms/Status";
 
 export interface Props {}
 
@@ -23,7 +24,7 @@ export default function Page({ ...rest }: Props) {
         </LogoWrap>
         <Dashboard>
           <Board>
-            <RText>Board</RText>
+            <Status />
           </Board>
           <Chart>
             <RText>Chart</RText>
@@ -41,7 +42,7 @@ const Container = styled.div`
 `;
 
 const Split = css`
-  border: 1px solid #ffffff25;
+  /* border: 1px solid #ffffff25; */
   box-sizing: border-box;
 `;
 
@@ -50,6 +51,8 @@ const Navigator = styled.div`
   width: 100px;
   height: 100%;
   flex-shrink: 0;
+  background-color: ${colors.cardNavy};
+  border-right: 1px solid ${colors.borderGray};
 `;
 
 const MainScreen = styled.div`
@@ -61,24 +64,24 @@ const MainScreen = styled.div`
 `;
 
 const LogoWrap = styled.div`
-  ${Split}
+  /* ${Split} */
   width: 100%;
   padding: 38px;
 `;
 
 const Dashboard = styled.div`
-  ${Split}
+  /* ${Split} */
   flex: 1;
   display: flex;
   flex-direction: row;
 `;
 
 const Board = styled.div`
-  ${Split}
+  /* ${Split} */
   flex: 1;
 `;
 
 const Chart = styled.div`
-  ${Split}
+  /* ${Split} */
   flex: 1;
 `;
