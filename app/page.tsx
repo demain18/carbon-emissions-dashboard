@@ -24,7 +24,7 @@ export default function Page({ ...rest }: Props) {
         <LogoWrap>
           <Logo />
         </LogoWrap>
-        <Dashboard>
+        <DashboardWrap>
           <BoardWrap>
             <Status />
             <Board />
@@ -32,7 +32,7 @@ export default function Page({ ...rest }: Props) {
           <Chart>
             <RText>Chart</RText>
           </Chart>
-        </Dashboard>
+        </DashboardWrap>
       </MainScreen>
     </Container>
   );
@@ -70,11 +70,13 @@ const LogoWrap = styled.div`
   padding: 38px;
 `;
 
-const Dashboard = styled.div`
+const DashboardWrap = styled.div`
   ${Split}
   flex: 1;
   display: flex;
   flex-direction: row;
+  padding: 0px 40px;
+  gap: 40px;
 `;
 
 const BoardWrap = styled.div`

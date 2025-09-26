@@ -27,5 +27,5 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   gap: 40px;
-  padding: 0px 40px;
+  margin-bottom: 30px;
 `;

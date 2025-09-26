@@ -10,6 +10,7 @@ export interface Props {}
 
 export default function PostTable({}: Props) {
   const headers = [...postHeader];
+  const data = [...postsData];
 
   return (
     <Container>
@@ -27,7 +28,7 @@ export default function PostTable({}: Props) {
             </TableRow>
           </THead>
           <TBody>
-            {postsData.map((post) => (
+            {data.map((post) => (
               <TableRow key={post.id}>
                 <Td>
                   <RText color={colors.white}>{post.id}</RText>
@@ -56,7 +57,6 @@ export default function PostTable({}: Props) {
 }
 
 const Container = styled.div`
-  padding: 30px;
   box-sizing: border-box;
 `;
 
@@ -93,7 +93,7 @@ const Td = styled.td`
   box-sizing: border-box;
   cursor: pointer;
 
-  &:hover {
+  :hover {
     background-color: ${colors.activeCardNavy};
   }
 `;
