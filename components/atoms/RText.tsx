@@ -16,7 +16,9 @@ export interface Props {
   inter?: boolean;
   stick?: boolean;
   alignLeft?: boolean;
+  alignRight?: boolean;
   nonSelectDisabled?: boolean;
+  block?: boolean;
 }
 
 export default function RText({
@@ -30,7 +32,9 @@ export default function RText({
   inter,
   stick,
   alignLeft = false,
+  alignRight = false,
   nonSelectDisabled = false,
+  block = false,
 }: Props) {
   return (
     <TextContainer
@@ -46,7 +50,9 @@ export default function RText({
         inter && TextFamilyInter,
         stick && TextStick,
         alignLeft && TextAlignLeft,
+        alignRight && TextAlignRight,
         nonSelectDisabled === false && NonSelect,
+        block && TextBlock,
       ]}
     >
       {children}
@@ -61,8 +67,6 @@ const TextContainer = styled.p`
   line-height: 1.3;
   font-weight: 400;
   color: ${colors.white};
-  /* background-color: ${colors.borderGray};
-  color: ${colors.borderGray}!important; */
 `;
 
 // All CSS values follow CamelCase naming rules to prevent confusion with React states.
@@ -100,6 +104,14 @@ const TextStick = css`
 
 const TextAlignLeft = css`
   text-align: left;
+`;
+
+const TextAlignRight = css`
+  text-align: right;
+`;
+
+const TextBlock = css`
+  width: 100%;
 `;
 
 const NonSelect = css`

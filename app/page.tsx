@@ -11,6 +11,8 @@ import StatusBox from "@/components/molecules/StatusBox";
 import Status from "@/components/organisms/Status";
 import Navigation from "@/components/organisms/Navigation";
 import Board from "@/components/organisms/Board";
+import EmmisonsPieChart from "@/components/organisms/EmmisonsPieChart";
+import EmmisonsLineChart from "@/components/organisms/EmmisonsLineChart";
 
 export interface Props {}
 
@@ -29,9 +31,10 @@ export default function Page({ ...rest }: Props) {
             <Status />
             <Board />
           </BoardWrap>
-          <Chart>
-            <RText>Chart</RText>
-          </Chart>
+          <ChartWrap>
+            <EmmisonsPieChart />
+            <EmmisonsLineChart />
+          </ChartWrap>
         </DashboardWrap>
       </MainScreen>
     </Container>
@@ -84,7 +87,12 @@ const BoardWrap = styled.div`
   flex: 1;
 `;
 
-const Chart = styled.div`
+const ChartWrap = styled.div`
   ${Split}
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: content-box;
+  gap: 40px;
+  padding-bottom: 40px;
 `;

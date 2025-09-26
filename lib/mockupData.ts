@@ -75,3 +75,19 @@ export const postsData = [
       "Document proposing strategic partnerships with influential firms in the European and North American regions. Outlines specific collaboration strategies focusing on potential synergy.",
   },
 ];
+
+export const emmisionsData = [
+  { name: "Group A", value: 400 },
+  { name: "Group B", value: 300 },
+  { name: "Group C", value: 300 },
+  { name: "Group D", value: 200 },
+  { name: "Group E", value: 278 },
+  { name: "Group F", value: 189 },
+];
+
+export interface emmisionsDataType {
+  name: string;
+  value: number;
+  // 🌟 이 라인이 Recharts와의 타입 충돌을 해결합니다.
+  [key: string]: any;
+}
