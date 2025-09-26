@@ -17,7 +17,7 @@ export default function StatusGraphBox({ value, unit, tag }: Props) {
   return (
     <Container>
       <ValueWrap>
-        <RText h1 bold color="green" alignLeft>
+        <RText h1 bold color={colors.green} alignLeft>
           {value}
           {unit}
         </RText>
@@ -37,12 +37,11 @@ export default function StatusGraphBox({ value, unit, tag }: Props) {
 
 const Container = styled.div`
   ${BoxStyled}
-
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 17px;
   padding: 20px;
   padding-bottom: 30px;
 `;

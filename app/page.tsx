@@ -9,15 +9,16 @@ import React from "react";
 import Logo from "@/components/molecules/Logo";
 import StatusBox from "@/components/molecules/StatusBox";
 import Status from "@/components/organisms/Status";
+import Navigation from "@/components/organisms/Navigation";
 
 export interface Props {}
 
 export default function Page({ ...rest }: Props) {
   return (
     <Container>
-      <Navigator>
-        <RText>Navigator</RText>
-      </Navigator>
+      <NavigationWrap>
+        <Navigation />
+      </NavigationWrap>
       <MainScreen>
         <LogoWrap>
           <Logo />
@@ -42,17 +43,15 @@ const Container = styled.div`
 `;
 
 const Split = css`
-  /* border: 1px solid #ffffff25; */
+  /* border: 1px solid #ececec25; */
   box-sizing: border-box;
 `;
 
-const Navigator = styled.div`
+const NavigationWrap = styled.div`
   ${Split}
   width: 100px;
   height: 100%;
   flex-shrink: 0;
-  background-color: ${colors.cardNavy};
-  border-right: 1px solid ${colors.borderGray};
 `;
 
 const MainScreen = styled.div`
@@ -64,24 +63,24 @@ const MainScreen = styled.div`
 `;
 
 const LogoWrap = styled.div`
-  /* ${Split} */
+  ${Split}
   width: 100%;
   padding: 38px;
 `;
 
 const Dashboard = styled.div`
-  /* ${Split} */
+  ${Split}
   flex: 1;
   display: flex;
   flex-direction: row;
 `;
 
 const Board = styled.div`
-  /* ${Split} */
+  ${Split}
   flex: 1;
 `;
 
 const Chart = styled.div`
-  /* ${Split} */
+  ${Split}
   flex: 1;
 `;

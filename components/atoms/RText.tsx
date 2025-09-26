@@ -12,10 +12,11 @@ export interface Props {
   h2?: boolean;
   sm?: boolean;
   xsm?: boolean;
-  color?: colorKeys;
+  color?: string;
   inter?: boolean;
   stick?: boolean;
   alignLeft?: boolean;
+  nonSelectDisabled?: boolean;
 }
 
 export default function RText({
@@ -25,10 +26,11 @@ export default function RText({
   h2,
   sm,
   xsm,
-  color = "white",
+  color = colors.white,
   inter,
   stick,
   alignLeft = false,
+  nonSelectDisabled = false,
 }: Props) {
   return (
     <TextContainer
@@ -39,11 +41,12 @@ export default function RText({
         sm && TextSmall,
         xsm && TextExtraSmall,
         css`
-          color: ${colors[color]};
+          color: ${color};
         `,
         inter && TextFamilyInter,
         stick && TextStick,
         alignLeft && TextAlignLeft,
+        nonSelectDisabled === false && NonSelect,
       ]}
     >
       {children}
@@ -58,6 +61,8 @@ const TextContainer = styled.p`
   line-height: 1.3;
   font-weight: 400;
   color: ${colors.white};
+  /* background-color: ${colors.borderGray};
+  color: ${colors.borderGray}!important; */
 `;
 
 // All CSS values follow CamelCase naming rules to prevent confusion with React states.
@@ -95,4 +100,11 @@ const TextStick = css`
 
 const TextAlignLeft = css`
   text-align: left;
+`;
+
+const NonSelect = css`
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+  user-select: none; /* Standard */
 `;
