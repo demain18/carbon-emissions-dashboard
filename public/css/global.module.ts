@@ -19,3 +19,9 @@ export const BoxStyled = css`
   border: 1px solid ${colors.borderGray};
   border-radius: 8px;
 `;
+
+export const Transition = css`
+  transition-property: all;
+  transition-duration: 0.105s;
+  transition-timing-function: ease-in-out;
+`;

@@ -10,6 +10,7 @@ import Logo from "@/components/molecules/Logo";
 import StatusBox from "@/components/molecules/StatusBox";
 import Status from "@/components/organisms/Status";
 import Navigation from "@/components/organisms/Navigation";
+import Board from "@/components/organisms/Board";
 
 export interface Props {}
 
@@ -24,9 +25,10 @@ export default function Page({ ...rest }: Props) {
           <Logo />
         </LogoWrap>
         <Dashboard>
-          <Board>
+          <BoardWrap>
             <Status />
-          </Board>
+            <Board />
+          </BoardWrap>
           <Chart>
             <RText>Chart</RText>
           </Chart>
@@ -75,7 +77,7 @@ const Dashboard = styled.div`
   flex-direction: row;
 `;
 
-const Board = styled.div`
+const BoardWrap = styled.div`
   ${Split}
   flex: 1;
 `;

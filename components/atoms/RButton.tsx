@@ -3,7 +3,7 @@
 
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { colors } from "@/public/css/global.module";
+import { colors, Transition } from "@/public/css/global.module";
 
 export interface Props {
   children: React.ReactNode;
@@ -31,9 +31,7 @@ export default function RButton({
 }
 
 const Container = styled.div`
-  transition-property: all;
-  transition-duration: 0.127s;
-  transition-timing-function: ease-in-out;
+  ${Transition}
   border-radius: 8px;
 
   :hover {

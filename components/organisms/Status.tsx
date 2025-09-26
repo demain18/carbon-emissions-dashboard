@@ -23,7 +23,7 @@ export default function Status({}: Props) {
 }
 
 const Container = styled.div`
-  height: 90px;
+  /* height: 90px; */
   display: flex;
   flex-direction: row;
   gap: 40px;
