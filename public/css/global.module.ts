@@ -6,7 +6,10 @@ export const colors = {
   cardNavy: "#001D31",
   green: "#1EBD7C",
   white: "#ffffff",
+  black: "#000000",
 };
+
+export type colorKeys = keyof typeof colors;
 
 export const BoxStyled = css`
   background-color: ${colors.cardNavy};

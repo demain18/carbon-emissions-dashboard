@@ -4,6 +4,7 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import StatusBox from "../molecules/StatusBox";
+import StatusGraphBox from "../molecules/StatusGraphBox";
 
 export interface Props {}
 
@@ -12,7 +13,7 @@ export default function Status({}: Props) {
     <Container>
       <StatusBox value={47.31} unit="t" tag="Daily Emissions(tCO2e)" />
       <StatusBox value={1935.59} unit="t" tag="Monthly Emissions(tCO2e)" />
-      <StatusBox
+      <StatusGraphBox
         value={19.5}
         unit="%"
         tag="Weekly carbon emissions have increased."
@@ -22,6 +23,7 @@ export default function Status({}: Props) {
 }
 
 const Container = styled.div`
+  height: 90px;
   display: flex;
   flex-direction: row;
   gap: 40px;

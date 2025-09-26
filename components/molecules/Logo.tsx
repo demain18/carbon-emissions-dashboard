@@ -16,6 +16,7 @@ export default function Logo({}: Props) {
         width={90}
         height={50}
         alt="Logo"
+        draggable="false"
       />
       <RText h2 bold inter stick>
         HanaLoop

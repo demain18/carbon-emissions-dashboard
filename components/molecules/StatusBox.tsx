@@ -16,8 +16,7 @@ export default function StatusBox({ value, unit, tag }: Props) {
   return (
     <Container>
       <RText h1 bold>
-        {value}
-        {unit}
+        {`${value} ${unit}`}
       </RText>
       <RText>{tag}</RText>
     </Container>
@@ -32,7 +31,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 17px;
   padding: 20px;
   padding-bottom: 30px;
 `;

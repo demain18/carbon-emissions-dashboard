@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 "use client";
 
-import { colors } from "@/public/css/global.module";
+import { colorKeys, colors } from "@/public/css/global.module";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
@@ -12,9 +12,10 @@ export interface Props {
   h2?: boolean;
   sm?: boolean;
   xsm?: boolean;
-  dark?: boolean;
+  color?: colorKeys;
   inter?: boolean;
   stick?: boolean;
+  alignLeft?: boolean;
 }
 
 export default function RText({
@@ -24,9 +25,10 @@ export default function RText({
   h2,
   sm,
   xsm,
-  dark,
+  color = "white",
   inter,
   stick,
+  alignLeft = false,
 }: Props) {
   return (
     <TextContainer
@@ -36,9 +38,12 @@ export default function RText({
         h2 && TextH2,
         sm && TextSmall,
         xsm && TextExtraSmall,
-        dark && TextDark,
+        css`
+          color: ${colors[color]};
+        `,
         inter && TextFamilyInter,
         stick && TextStick,
+        alignLeft && TextAlignLeft,
       ]}
     >
       {children}
@@ -47,7 +52,7 @@ export default function RText({
 }
 
 // Using 'styled.div' instead of 'CSS' means TextContainer was the mother element of this components.
-const TextContainer = styled.div`
+const TextContainer = styled.p`
   margin: 0;
   font-size: 16px;
   line-height: 1.3;
@@ -86,4 +91,8 @@ const TextFamilyInter = css`
 
 const TextStick = css`
   line-height: 1;
+`;
+
+const TextAlignLeft = css`
+  text-align: left;
 `;
