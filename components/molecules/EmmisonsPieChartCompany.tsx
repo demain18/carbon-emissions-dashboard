@@ -14,8 +14,8 @@ export interface Props {
 export default function EmmisonsPieChartCompany({ data }: Props) {
   return (
     <Container>
-      {data.map((data) => (
-        <CompanyWrap>
+      {data.map((data, x) => (
+        <CompanyWrap key={x}>
           <CompanyColortag
             css={css`
               background-color: ${colors.white};

@@ -42,20 +42,20 @@ export default function Page({ ...rest }: Props) {
 }
 
 const Container = styled.div`
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   height: 100vh;
 `;
 
 const Split = css`
-  /* border: 1px solid #ececec25; */
   box-sizing: border-box;
 `;
 
 const NavigationWrap = styled.div`
   ${Split}
   width: 100px;
-  height: 100vh;
+  height: 100%;
   flex-shrink: 0;
 `;
 
@@ -75,11 +75,11 @@ const LogoWrap = styled.div`
 
 const DashboardWrap = styled.div`
   ${Split}
-  flex: 1;
   display: flex;
   flex-direction: row;
   padding: 0px 40px;
   gap: 40px;
+  padding-bottom: 40px;
 `;
 
 const BoardWrap = styled.div`
@@ -92,7 +92,5 @@ const ChartWrap = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  box-sizing: content-box;
   gap: 40px;
-  padding-bottom: 40px;
 `;
