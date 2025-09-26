@@ -63,7 +63,8 @@ export default function Navigation({}: Props) {
 
 const Container = styled.div`
   width: 100%;
-  height: 1000%;
+  height: 100vh;
+  box-sizing: border-box;
   background-color: ${colors.cardNavy};
   border-right: 1px solid ${colors.borderGray};
   display: flex;

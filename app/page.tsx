@@ -50,14 +50,14 @@ const Split = css`
 const NavigationWrap = styled.div`
   ${Split}
   width: 100px;
-  height: 100%;
+  height: 100vh;
   flex-shrink: 0;
 `;
 
 const MainScreen = styled.div`
   ${Split}
   flex: 1;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 `;
