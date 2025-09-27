@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import RText from "../atoms/RText";
 import { colors, Transition } from "@/public/css/global.module";
-import { postsData, postHeader } from "@/lib/mockupData";
+import { PostData, postHeader } from "@/lib/mockupData";
 import Modal from "./Modal";
 import useModalStore from "@/lib/basicStore";
 
@@ -15,7 +15,7 @@ export default function PostTable({}: Props) {
   const { modalOpened, toggleModal } = useModalStore();
 
   const headers = [...postHeader];
-  const data = [...postsData];
+  const data = [...PostData];
 
   return (
     <Container>
