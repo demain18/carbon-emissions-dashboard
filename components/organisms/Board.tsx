@@ -41,8 +41,10 @@ export default function PostTable({}: Props) {
   }, []);
 
   const openModal = (id: number) => {
-    toggleModal();
-    selectPost(id);
+    if (isLoading === false) {
+      toggleModal();
+      selectPost(id);
+    }
   };
 
   return (
