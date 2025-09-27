@@ -11,8 +11,8 @@ import StatusBox from "@/components/molecules/StatusBox";
 import Status from "@/components/organisms/Status";
 import Navigation from "@/components/organisms/Navigation";
 import Board from "@/components/organisms/Board";
-import EmmisonsPieChart from "@/components/organisms/EmmisonsPieChart";
-import EmissionsLineChart from "@/components/organisms/EmmisonsLineChart";
+import EmissionsPieChart from "@/components/organisms/EmissionsPieChart";
+import EmissionsLineChart from "@/components/organisms/EmissionsLineChart";
 import useModalStore from "@/lib/basicStore";
 import Modal from "@/components/organisms/Modal";
 
@@ -37,7 +37,7 @@ export default function Page({ ...rest }: Props) {
             <Board />
           </BoardWrap>
           <ChartWrap>
-            <EmmisonsPieChart />
+            <EmissionsPieChart />
             <EmissionsLineChart />
           </ChartWrap>
         </DashboardWrap>
