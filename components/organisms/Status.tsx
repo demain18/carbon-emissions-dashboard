@@ -22,8 +22,8 @@ export default function Status({}: Props) {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const posts = await fetchStatus();
-        setData(posts);
+        const status = await fetchStatus();
+        setData(status);
       } catch (e) {
         console.error("데이터 로드 실패", e);
       }

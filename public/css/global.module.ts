@@ -30,3 +30,5 @@ export const Transition = css`
 const breakpoints = [1600, 992];
 
 export const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
+
+export const CHART_COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];

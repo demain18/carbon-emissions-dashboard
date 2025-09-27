@@ -6,33 +6,53 @@ import { css } from "@emotion/react";
 import { BoxStyled, colors } from "@/public/css/global.module";
 import RText from "../atoms/RText";
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
-import { emmisionsData, Companies } from "@/lib/mockupData";
+import {
+  Companies,
+  CompaniesDto,
+  CompaniesPieChartDto,
+  PieChartPreload,
+} from "@/lib/mockupData";
 import EmmisonsPieChartRender from "../molecules/EmmisonsPieChartRender";
 import EmmisonsPieChartCompany from "../molecules/EmmisonsPieChartCompany";
+import { useEffect, useState } from "react";
+import { fetchCompanies } from "@/lib/api";
 
 export interface Props {}
 
 export default function EmmisonsPieChart({}: Props) {
-  const PieChartData = Companies.map((i, x) => {
-    return {
-      name: i.name,
-      value: i.emissions.reduce((acc, item) => acc + item.emissions, 0),
-    };
-  });
+  const [companiesData, setCompaniesData] =
+    useState<CompaniesPieChartDto[]>(PieChartPreload);
 
-  // console.log(PieChartData);
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const companies = await fetchCompanies();
+
+        const PieChartData = companies.map((i, x) => {
+          return {
+            name: i.name,
+            value: i.emissions.reduce((acc, item) => acc + item.emissions, 0),
+          };
+        });
+        setCompaniesData(PieChartData);
+      } catch (e) {
+        console.error("데이터 로드 실패", e);
+      }
+    };
+    loadData();
+  }, []);
 
   return (
     <Container>
       <RText bold>Total Emmisions</RText>
       <FlexWrap>
         <ChartWrap>
-          <EmmisonsPieChartRender data={PieChartData} />
+          <EmmisonsPieChartRender data={companiesData} />
         </ChartWrap>
         <CompanyWrap>
           <CompanyContents>
             <RText bold>Companys</RText>
-            <EmmisonsPieChartCompany data={PieChartData} />
+            <EmmisonsPieChartCompany data={companiesData} />
           </CompanyContents>
         </CompanyWrap>
       </FlexWrap>

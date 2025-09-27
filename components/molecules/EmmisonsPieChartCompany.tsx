@@ -4,7 +4,7 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import RText from "../atoms/RText";
-import { colors } from "@/public/css/global.module";
+import { CHART_COLORS, colors } from "@/public/css/global.module";
 import { CompaniesPieChartDto } from "@/lib/mockupData";
 
 export interface Props {
@@ -18,7 +18,8 @@ export default function EmmisonsPieChartCompany({ data }: Props) {
         <CompanyWrap key={x}>
           <CompanyColortag
             css={css`
-              background-color: ${colors.white};
+              background-color: ${data.name &&
+              CHART_COLORS[x % CHART_COLORS.length]};
             `}
           />
           <RText sm bold>

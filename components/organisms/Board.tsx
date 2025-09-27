@@ -20,7 +20,6 @@ export interface Props {}
 
 export default function PostTable({}: Props) {
   const { modalOpened, toggleModal, selectPost } = useModalStore();
-
   const headers = [...PostHeader];
 
   const [data, setData] = useState<PostDataDto[]>(PostDataPreload);

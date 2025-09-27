@@ -11,6 +11,7 @@ import {
 } from "@/lib/mockupData";
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 import { useState } from "react";
+import { CHART_COLORS } from "@/public/css/global.module";
 
 export interface Props {
   data: CompaniesPieChartDto[];
@@ -18,7 +19,6 @@ export interface Props {
 
 export default function EmmisonsPieChartRender({ data }: Props) {
   const RADIAN = Math.PI / 180;
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
   const renderCustomizedLabel = ({
     cx,
@@ -65,7 +65,7 @@ export default function EmmisonsPieChartRender({ data }: Props) {
             {data.map((entry, index) => (
               <Cell
                 key={`cell-${entry.name}`}
-                fill={COLORS[index % COLORS.length]}
+                fill={CHART_COLORS[index % CHART_COLORS.length]}
               />
             ))}
           </Pie>
