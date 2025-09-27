@@ -6,16 +6,37 @@ import { css } from "@emotion/react";
 import StatusBox from "../molecules/StatusBox";
 import StatusGraphBox from "../molecules/StatusGraphBox";
 import { mq } from "@/public/css/global.module";
+import { useEffect, useState } from "react";
+import { StatusDataDto } from "@/lib/mockupData";
+import { fetchStatus } from "@/lib/api";
 
 export interface Props {}
 
 export default function Status({}: Props) {
+  const [data, setData] = useState<StatusDataDto>({
+    daily: null,
+    monthly: null,
+    increased: null,
+  });
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const posts = await fetchStatus();
+        setData(posts);
+      } catch (e) {
+        console.error("데이터 로드 실패", e);
+      }
+    };
+    loadData();
+  }, []);
+
   return (
     <Container>
-      <StatusBox value={47.31} unit="t" tag="Daily Emissions(tCO2e)" />
-      <StatusBox value={1935.59} unit="t" tag="Monthly Emissions(tCO2e)" />
+      <StatusBox value={data.daily} unit="t" tag="Daily Emissions(tCO2e)" />
+      <StatusBox value={data.monthly} unit="t" tag="Monthly Emissions(tCO2e)" />
       <StatusGraphBox
-        value={19.5}
+        value={data.increased}
         unit="%"
         tag="Weekly carbon emissions have increased."
       />

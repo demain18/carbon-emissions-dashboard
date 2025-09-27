@@ -1,9 +1,16 @@
-import { Companies, Countries, PostData, PostDataDto } from "./mockupData";
+import {
+  Companies,
+  Countries,
+  PostData,
+  PostDataDto,
+  StatusData,
+} from "./mockupData";
 
 // lib/api.ts
 let _countries = [...Countries];
 let _companies = [...Companies];
 let _posts = [...PostData];
+let _status = StatusData;
 
 const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 const jitter = () => 200 + Math.random() * 600;
@@ -22,6 +29,11 @@ export async function fetchCompanies() {
 export async function fetchPosts() {
   await delay(jitter());
   return _posts;
+}
+
+export async function fetchStatus() {
+  await delay(jitter());
+  return _status;
 }
 
 export async function createOrUpdatePost(

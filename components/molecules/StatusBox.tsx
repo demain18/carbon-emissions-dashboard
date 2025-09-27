@@ -7,7 +7,7 @@ import RText from "../atoms/RText";
 import { BoxStyled, colors } from "@/public/css/global.module";
 
 export interface Props {
-  value: number;
+  value: number | null;
   unit: string;
   tag: string;
 }
@@ -16,7 +16,7 @@ export default function StatusBox({ value, unit, tag }: Props) {
   return (
     <Container>
       <RText h1 bold>
-        {`${value} ${unit}`}
+        {value && value + " t"}
       </RText>
       <RText>{tag}</RText>
     </Container>

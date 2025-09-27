@@ -6,11 +6,7 @@ import { css } from "@emotion/react";
 import { BoxStyled } from "@/public/css/global.module";
 import RText from "../atoms/RText";
 import EmmisonsLineChartRender from "../molecules/EmmisonsLineChartRender";
-import {
-  lineChartData,
-  Companies,
-  CompaniesLineChartDto,
-} from "@/lib/mockupData";
+import { Companies, CompaniesLineChartDto } from "@/lib/mockupData";
 
 export interface Props {}
 
@@ -34,9 +30,6 @@ export default function EmmisonsLineChart({}: Props) {
       return acc;
     }, [] as CompaniesLineChartDto[])
     .toSorted((a, b) => a.month.localeCompare(b.month));
-
-  console.log(LineChartData);
-  console.log(lineChartData);
 
   return (
     <Container>

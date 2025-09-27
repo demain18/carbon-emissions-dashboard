@@ -1,10 +1,98 @@
-export const postHeader = [
+// =================================================================
+// DTOs (Data Transfer Objects)
+// =================================================================
+
+export type CountryCode =
+  | "US"
+  | "CA"
+  | "DE"
+  | "KR"
+  | "JP"
+  | "FR"
+  | "CN"
+  | "GB"
+  | "AU"
+  | "IN";
+
+export interface GhgEmission {
+  yearMonth: string; // "YYYY-MM" format
+  source: string; // fuel type, e.g., gasoline, diesel
+  emissions: number; // tons of CO2 equivalent
+}
+
+export interface CountriesDto {
+  code: CountryCode;
+  name: string;
+}
+
+export interface CompaniesDto {
+  id: string;
+  name: string;
+  countryCode: CountryCode;
+  emissions: GhgEmission[];
+}
+
+export interface PostDataDto {
+  id: string;
+  title: string | null;
+  resourceUid: string | null;
+  dateTime: string | null;
+  content: string | null;
+}
+
+// Chart DTOs
+export interface emmisionsDataDto {
+  name: string;
+  value: number;
+  [key: string]: any; // For chart library compatibility
+}
+
+export interface CompaniesPieChartDto {
+  name: string;
+  value: number;
+  [key: string]: any;
+}
+
+export interface CompaniesLineChartDto {
+  month: string;
+  value: number;
+  [key: string]: any;
+}
+
+export interface StatusDataDto {
+  daily: number | null;
+  monthly: number | null;
+  increased: number | null;
+}
+
+// =================================================================
+// Constants and Headers
+// =================================================================
+
+export const PostHeader = [
   { key: "id", label: "ID" },
   { key: "title", label: "Title" },
   { key: "resourceUid", label: "Resource ID" },
   { key: "dateTime", label: "Date/Time" },
   { key: "content", label: "Content" },
 ];
+
+export const Countries: CountriesDto[] = [
+  { code: "US", name: "United States" },
+  { code: "CA", name: "Canada" },
+  { code: "DE", name: "Germany" },
+  { code: "KR", name: "South Korea" },
+  { code: "JP", name: "Japan" },
+  { code: "FR", name: "France" },
+  { code: "CN", name: "China" },
+  { code: "GB", name: "United Kingdom" },
+  { code: "AU", name: "Australia" },
+  { code: "IN", name: "India" },
+];
+
+// =================================================================
+// Data
+// =================================================================
 
 export const PostDataPreload: PostDataDto[] = [
   {
@@ -78,68 +166,6 @@ export const PostDataPreload: PostDataDto[] = [
     content: null,
   },
 ];
-
-export const emmisionsData = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 },
-  { name: "Group E", value: 278 },
-  { name: "Group F", value: 189 },
-];
-
-export interface emmisionsDataDto {
-  name: string;
-  value: number;
-  // 🌟 이 라인이 Recharts와의 타입 충돌을 해결합니다.
-  [key: string]: any;
-}
-
-export interface lineChartDataDto {
-  name: string;
-  uv: number;
-}
-
-export const lineChartData: lineChartDataDto[] = [
-  {
-    name: "Page A",
-    uv: 4000,
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-  },
-  {
-    name: "Page C",
-    uv: 2000,
-  },
-  {
-    name: "Page D",
-    uv: 2780,
-  },
-  {
-    name: "Page E",
-    uv: 1890,
-  },
-  {
-    name: "Page F",
-    uv: 2390,
-  },
-  {
-    name: "Page G",
-    uv: 3490,
-  },
-];
-
-// Real Data for Connect.
-
-export interface PostDataDto {
-  id: string;
-  title: string | null;
-  resourceUid: string | null;
-  dateTime: string | null;
-  content: string | null;
-}
 
 export const PostData: PostDataDto[] = [
   {
@@ -303,61 +329,6 @@ export const PostData: PostDataDto[] = [
       "Internal preparatory audit and documentation review prior to the external assessment for ISO 14001 certification renewal.",
   },
 ];
-
-export interface GhgEmission {
-  yearMonth: string; // "2024-01" 부터 "2024-12" 까지
-  source: string; // gasoline, lpg, diesel, etc
-  emissions: number; // tons of CO2 equivalent
-}
-
-export type CountryCode =
-  | "US"
-  | "CA"
-  | "DE"
-  | "KR"
-  | "JP"
-  | "FR"
-  | "CN"
-  | "GB"
-  | "AU"
-  | "IN";
-
-export interface CountriesDto {
-  code: CountryCode;
-  name: string;
-}
-
-export const Countries: CountriesDto[] = [
-  { code: "US", name: "United States" },
-  { code: "CA", name: "Canada" },
-  { code: "DE", name: "Germany" },
-  { code: "KR", name: "South Korea" },
-  { code: "JP", name: "Japan" },
-  { code: "FR", name: "France" },
-  { code: "CN", name: "China" },
-  { code: "GB", name: "United Kingdom" },
-  { code: "AU", name: "Australia" },
-  { code: "IN", name: "India" },
-];
-
-export interface CompaniesDto {
-  id: string;
-  name: string;
-  countryCode: CountryCode;
-  emissions: GhgEmission[];
-}
-
-export interface CompaniesPieChartDto {
-  name: string;
-  value: number;
-  [key: string]: any;
-}
-
-export interface CompaniesLineChartDto {
-  month: string;
-  value: number;
-  [key: string]: any;
-}
 
 export const Companies: CompaniesDto[] = [
   {
@@ -551,3 +522,9 @@ export const Companies: CompaniesDto[] = [
     ],
   },
 ];
+
+export const StatusData: StatusDataDto = {
+  daily: 47.31,
+  monthly: 1935.59,
+  increased: 11.7,
+};

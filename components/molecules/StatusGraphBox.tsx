@@ -8,7 +8,7 @@ import Image from "next/image";
 import { BoxStyled, colors } from "@/public/css/global.module";
 
 export interface Props {
-  value: number;
+  value: number | null;
   unit: string;
   tag: string;
 }
@@ -18,16 +18,17 @@ export default function StatusGraphBox({ value, unit, tag }: Props) {
     <Container>
       <ValueWrap>
         <RText h1 bold color={colors.green} alignLeft>
-          {value}
-          {unit}
+          {value && value + "%"}
         </RText>
-        <Image
-          src={"/images/chart-up.svg"}
-          width={35}
-          height={24}
-          alt="chart_up"
-          css={GraphStyled}
-        />
+        {value && (
+          <Image
+            src={"/images/chart-up.svg"}
+            width={35}
+            height={24}
+            alt="chart_up"
+            css={GraphStyled}
+          />
+        )}
       </ValueWrap>
 
       <RText>{tag}</RText>

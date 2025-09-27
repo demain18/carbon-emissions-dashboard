@@ -9,7 +9,7 @@ import {
   PostData,
   PostDataDto,
   PostDataPreload,
-  postHeader,
+  PostHeader,
 } from "@/lib/mockupData";
 import Modal from "./Modal";
 import useModalStore from "@/lib/basicStore";
@@ -21,7 +21,7 @@ export interface Props {}
 export default function PostTable({}: Props) {
   const { modalOpened, toggleModal, selectPost } = useModalStore();
 
-  const headers = [...postHeader];
+  const headers = [...PostHeader];
 
   const [data, setData] = useState<PostDataDto[]>(PostDataPreload);
   const [isLoading, setIsLoading] = useState(true);
