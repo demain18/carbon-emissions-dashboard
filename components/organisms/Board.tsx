@@ -5,10 +5,14 @@ import styled from "@emotion/styled";
 import RText from "../atoms/RText";
 import { colors, Transition } from "@/public/css/global.module";
 import { postsData, postHeader } from "@/lib/mockupData";
+import Modal from "./Modal";
+import useModalStore from "@/lib/basicStore";
 
 export interface Props {}
 
 export default function PostTable({}: Props) {
+  const { modalOpened, toggleModal } = useModalStore();
+
   const headers = [...postHeader];
   const data = [...postsData];
 
@@ -29,7 +33,7 @@ export default function PostTable({}: Props) {
           </THead>
           <TBody>
             {data.map((post) => (
-              <TableRow key={post.id}>
+              <TableRow key={post.id} onClick={toggleModal}>
                 <Td>
                   <RText color={colors.white}>{post.id}</RText>
                 </Td>
@@ -81,7 +85,7 @@ const Th = styled.th`
   padding: 12px 16px;
   text-align: left;
   border: 1px solid ${colors.borderGray};
-  border-bottom: 1px solid ${colors.white};
+  border-bottom: 1px solid ${colors.white50};
   box-sizing: border-box;
 `;
 

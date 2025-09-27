@@ -13,7 +13,7 @@ export interface Props {}
 export default function EmmisonsLineChart({}: Props) {
   return (
     <Container>
-      <RText>Emissions Fee(CBAM) Completion over</RText>
+      <RText>Emissions Per Months</RText>
       <ChartWrap>
         <EmmisonsLineChartRender data={lineChartData} />
       </ChartWrap>

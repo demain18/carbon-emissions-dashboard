@@ -13,12 +13,17 @@ import Navigation from "@/components/organisms/Navigation";
 import Board from "@/components/organisms/Board";
 import EmmisonsPieChart from "@/components/organisms/EmmisonsPieChart";
 import EmmisonsLineChart from "@/components/organisms/EmmisonsLineChart";
+import useModalStore from "@/lib/basicStore";
+import Modal from "@/components/organisms/Modal";
 
 export interface Props {}
 
 export default function Page({ ...rest }: Props) {
+  const { modalOpened, toggleModal } = useModalStore();
+
   return (
     <Container>
+      {modalOpened && <Modal />}
       <NavigationWrap>
         <Navigation />
       </NavigationWrap>
