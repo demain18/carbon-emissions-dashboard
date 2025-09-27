@@ -5,10 +5,10 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import RText from "../atoms/RText";
 import { colors } from "@/public/css/global.module";
-import { emmisionsDataDto } from "@/lib/mockupData";
+import { CompaniesPieChartDto } from "@/lib/mockupData";
 
 export interface Props {
-  data: emmisionsDataDto[];
+  data: CompaniesPieChartDto[];
 }
 
 export default function EmmisonsPieChartCompany({ data }: Props) {
@@ -21,8 +21,10 @@ export default function EmmisonsPieChartCompany({ data }: Props) {
               background-color: ${colors.white};
             `}
           />
-          <RText>{data.name}</RText>
-          <Value>{data.value}</Value>
+          <RText sm bold>
+            {data.name}
+          </RText>
+          <Value>{data.value.toFixed(2)} t</Value>
         </CompanyWrap>
       ))}
     </Container>

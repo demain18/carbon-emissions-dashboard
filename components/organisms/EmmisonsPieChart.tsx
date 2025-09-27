@@ -6,24 +6,33 @@ import { css } from "@emotion/react";
 import { BoxStyled, colors } from "@/public/css/global.module";
 import RText from "../atoms/RText";
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
-import { emmisionsData } from "@/lib/mockupData";
+import { emmisionsData, Companies } from "@/lib/mockupData";
 import EmmisonsPieChartRender from "../molecules/EmmisonsPieChartRender";
 import EmmisonsPieChartCompany from "../molecules/EmmisonsPieChartCompany";
 
 export interface Props {}
 
 export default function EmmisonsPieChart({}: Props) {
+  const PieChartData = Companies.map((i, x) => {
+    return {
+      name: i.name,
+      value: i.emissions.reduce((acc, item) => acc + item.emissions, 0),
+    };
+  });
+
+  // console.log(PieChartData);
+
   return (
     <Container>
       <RText bold>Total Emmisions</RText>
       <FlexWrap>
         <ChartWrap>
-          <EmmisonsPieChartRender data={emmisionsData} />
+          <EmmisonsPieChartRender data={PieChartData} />
         </ChartWrap>
         <CompanyWrap>
           <CompanyContents>
             <RText bold>Companys</RText>
-            <EmmisonsPieChartCompany data={emmisionsData} />
+            <EmmisonsPieChartCompany data={PieChartData} />
           </CompanyContents>
         </CompanyWrap>
       </FlexWrap>
@@ -43,6 +52,7 @@ const Container = styled.div`
 const FlexWrap = styled.div`
   display: flex;
   flex-direction: row;
+  /* gap: 10px; */
 `;
 
 const ChartWrap = styled.div`
@@ -54,10 +64,7 @@ const ChartWrap = styled.div`
 const CompanyWrap = styled.div`
   flex: 3;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: -36px;
+  /* display: flex; */
 `;
 
 const CompanyContents = styled.div`

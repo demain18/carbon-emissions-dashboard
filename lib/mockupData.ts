@@ -6,6 +6,133 @@ export const postHeader = [
   { key: "content", label: "Content" },
 ];
 
+export const PostDataPreload: PostDataDto[] = [
+  {
+    id: "p001",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p002",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p003",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p004",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p005",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p006",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p007",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p008",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p009",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p010",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+];
+
+export const emmisionsData = [
+  { name: "Group A", value: 400 },
+  { name: "Group B", value: 300 },
+  { name: "Group C", value: 300 },
+  { name: "Group D", value: 200 },
+  { name: "Group E", value: 278 },
+  { name: "Group F", value: 189 },
+];
+
+export interface emmisionsDataDto {
+  name: string;
+  value: number;
+  // 🌟 이 라인이 Recharts와의 타입 충돌을 해결합니다.
+  [key: string]: any;
+}
+
+export interface lineChartDataDto {
+  name: string;
+  uv: number;
+}
+
+export const lineChartData: lineChartDataDto[] = [
+  {
+    name: "Page A",
+    uv: 4000,
+  },
+  {
+    name: "Page B",
+    uv: 3000,
+  },
+  {
+    name: "Page C",
+    uv: 2000,
+  },
+  {
+    name: "Page D",
+    uv: 2780,
+  },
+  {
+    name: "Page E",
+    uv: 1890,
+  },
+  {
+    name: "Page F",
+    uv: 2390,
+  },
+  {
+    name: "Page G",
+    uv: 3490,
+  },
+];
+
+// Real Data for Connect.
+
 export interface PostDataDto {
   id: string;
   title: string | null;
@@ -177,151 +304,250 @@ export const PostData: PostDataDto[] = [
   },
 ];
 
-export const PostDataPreload: PostDataDto[] = [
-  {
-    id: "p001",
-    title: null,
-    resourceUid: null,
-    dateTime: null,
-    content: null,
-  },
-  {
-    id: "p002",
-    title: null,
-    resourceUid: null,
-    dateTime: null,
-    content: null,
-  },
-  {
-    id: "p003",
-    title: null,
-    resourceUid: null,
-    dateTime: null,
-    content: null,
-  },
-  {
-    id: "p004",
-    title: null,
-    resourceUid: null,
-    dateTime: null,
-    content: null,
-  },
-  {
-    id: "p005",
-    title: null,
-    resourceUid: null,
-    dateTime: null,
-    content: null,
-  },
-  {
-    id: "p006",
-    title: null,
-    resourceUid: null,
-    dateTime: null,
-    content: null,
-  },
-  {
-    id: "p007",
-    title: null,
-    resourceUid: null,
-    dateTime: null,
-    content: null,
-  },
-  {
-    id: "p008",
-    title: null,
-    resourceUid: null,
-    dateTime: null,
-    content: null,
-  },
-  {
-    id: "p009",
-    title: null,
-    resourceUid: null,
-    dateTime: null,
-    content: null,
-  },
-  {
-    id: "p010",
-    title: null,
-    resourceUid: null,
-    dateTime: null,
-    content: null,
-  },
+export interface GhgEmission {
+  yearMonth: string; // "2024-01" 부터 "2024-12" 까지
+  source: string; // gasoline, lpg, diesel, etc
+  emissions: number; // tons of CO2 equivalent
+}
+
+export type CountryCode =
+  | "US"
+  | "CA"
+  | "DE"
+  | "KR"
+  | "JP"
+  | "FR"
+  | "CN"
+  | "GB"
+  | "AU"
+  | "IN";
+
+export interface CountriesDto {
+  code: CountryCode;
+  name: string;
+}
+
+export const Countries: CountriesDto[] = [
+  { code: "US", name: "United States" },
+  { code: "CA", name: "Canada" },
+  { code: "DE", name: "Germany" },
+  { code: "KR", name: "South Korea" },
+  { code: "JP", name: "Japan" },
+  { code: "FR", name: "France" },
+  { code: "CN", name: "China" },
+  { code: "GB", name: "United Kingdom" },
+  { code: "AU", name: "Australia" },
+  { code: "IN", name: "India" },
 ];
 
-export const emmisionsData = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 },
-  { name: "Group E", value: 278 },
-  { name: "Group F", value: 189 },
-];
+export interface CompaniesDto {
+  id: string;
+  name: string;
+  countryCode: CountryCode;
+  emissions: GhgEmission[];
+}
 
-export interface emmisionsDataDto {
+export interface CompaniesPieChartDto {
   name: string;
   value: number;
-  // 🌟 이 라인이 Recharts와의 타입 충돌을 해결합니다.
   [key: string]: any;
 }
 
-export const lineChartData: lineChartDataDto[] = [
-  {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
-
-export interface lineChartDataDto {
-  name: string;
-  uv: number;
-  pv: number;
-  amt: number;
+export interface CompaniesLineChartDto {
+  month: string;
+  value: number;
+  [key: string]: any;
 }
 
-export interface CountriesDataDto {}
-
-export const CountriesData: CountriesDataDto[] = [];
-
-export interface CompaniesDataDto {}
-
-export const CompaniesData: CompaniesDataDto[] = [];
+export const Companies: CompaniesDto[] = [
+  {
+    id: "c1",
+    name: "Aurora Aerospace Corp",
+    countryCode: "US",
+    emissions: [
+      { yearMonth: "2024-01", source: "diesel", emissions: 125.45 },
+      { yearMonth: "2024-02", source: "diesel", emissions: 115.1 },
+      { yearMonth: "2024-03", source: "diesel", emissions: 82.78 },
+      { yearMonth: "2024-04", source: "diesel", emissions: 100.9 },
+      { yearMonth: "2024-05", source: "diesel", emissions: 105.35 },
+      { yearMonth: "2024-06", source: "diesel", emissions: 120.66 },
+      { yearMonth: "2024-07", source: "diesel", emissions: 135.5 },
+      { yearMonth: "2024-08", source: "diesel", emissions: 145.88 },
+      { yearMonth: "2024-09", source: "diesel", emissions: 138.12 },
+      { yearMonth: "2024-10", source: "diesel", emissions: 128.05 },
+      { yearMonth: "2024-11", source: "diesel", emissions: 118.99 },
+      { yearMonth: "2024-12", source: "diesel", emissions: 90.41 },
+    ],
+  },
+  {
+    id: "c2",
+    name: "Deep Earth Mining",
+    countryCode: "CA",
+    emissions: [
+      { yearMonth: "2024-01", source: "gasoline", emissions: 75.3 },
+      { yearMonth: "2024-02", source: "gasoline", emissions: 110.85 },
+      { yearMonth: "2024-03", source: "gasoline", emissions: 140.22 },
+      { yearMonth: "2024-04", source: "gasoline", emissions: 135.7 },
+      { yearMonth: "2024-05", source: "gasoline", emissions: 120.55 },
+      { yearMonth: "2024-06", source: "gasoline", emissions: 105.4 },
+      { yearMonth: "2024-07", source: "gasoline", emissions: 90.15 },
+      { yearMonth: "2024-08", source: "gasoline", emissions: 98.6 },
+      { yearMonth: "2024-09", source: "gasoline", emissions: 125.33 },
+      { yearMonth: "2024-10", source: "gasoline", emissions: 145.72 },
+      { yearMonth: "2024-11", source: "gasoline", emissions: 155.9 },
+      { yearMonth: "2024-12", source: "gasoline", emissions: 150.18 },
+    ],
+  },
+  {
+    id: "c3",
+    name: "BioVita Pharmaceuticals",
+    countryCode: "DE",
+    emissions: [
+      { yearMonth: "2024-01", source: "lpg", emissions: 48.55 },
+      { yearMonth: "2024-02", source: "lpg", emissions: 55.4 },
+      { yearMonth: "2024-03", source: "lpg", emissions: 62.1 },
+      { yearMonth: "2024-04", source: "lpg", emissions: 60.91 },
+      { yearMonth: "2024-05", source: "lpg", emissions: 54.88 },
+      { yearMonth: "2024-06", source: "lpg", emissions: 48.33 },
+      { yearMonth: "2024-07", source: "lpg", emissions: 41.19 },
+      { yearMonth: "2024-08", source: "lpg", emissions: 35.11 },
+      { yearMonth: "2024-09", source: "lpg", emissions: 38.65 },
+      { yearMonth: "2024-10", source: "lpg", emissions: 51.7 },
+      { yearMonth: "2024-11", source: "lpg", emissions: 64.25 },
+      { yearMonth: "2024-12", source: "lpg", emissions: 68.75 },
+    ],
+  },
+  {
+    id: "c4",
+    name: "Terra Urban Systems",
+    countryCode: "KR",
+    emissions: [
+      { yearMonth: "2024-01", source: "electricity", emissions: 195.1 },
+      { yearMonth: "2024-02", source: "electricity", emissions: 160.25 },
+      { yearMonth: "2024-03", source: "electricity", emissions: 205.55 },
+      { yearMonth: "2024-04", source: "electricity", emissions: 225.9 },
+      { yearMonth: "2024-05", source: "electricity", emissions: 255.3 },
+      { yearMonth: "2024-06", source: "electricity", emissions: 285.75 },
+      { yearMonth: "2024-07", source: "electricity", emissions: 295.5 },
+      { yearMonth: "2024-08", source: "electricity", emissions: 275.4 },
+      { yearMonth: "2024-09", source: "electricity", emissions: 235.6 },
+      { yearMonth: "2024-10", source: "electricity", emissions: 210.11 },
+      { yearMonth: "2024-11", source: "electricity", emissions: 185.85 },
+      { yearMonth: "2024-12", source: "electricity", emissions: 175.33 },
+    ],
+  },
+  {
+    id: "c5",
+    name: "Aether Renewables",
+    countryCode: "JP",
+    emissions: [
+      { yearMonth: "2024-01", source: "natural_gas", emissions: 33.11 },
+      { yearMonth: "2024-02", source: "natural_gas", emissions: 42.22 },
+      { yearMonth: "2024-03", source: "natural_gas", emissions: 52.8 },
+      { yearMonth: "2024-04", source: "natural_gas", emissions: 47.78 },
+      { yearMonth: "2024-05", source: "natural_gas", emissions: 37.19 },
+      { yearMonth: "2024-06", source: "natural_gas", emissions: 32.45 },
+      { yearMonth: "2024-07", source: "natural_gas", emissions: 27.88 },
+      { yearMonth: "2024-08", source: "natural_gas", emissions: 22.1 },
+      { yearMonth: "2024-09", source: "natural_gas", emissions: 28.15 },
+      { yearMonth: "2024-10", source: "natural_gas", emissions: 35.55 },
+      { yearMonth: "2024-11", source: "natural_gas", emissions: 45.72 },
+      { yearMonth: "2024-12", source: "natural_gas", emissions: 50.61 },
+    ],
+  },
+  {
+    id: "c6",
+    name: "Harvest Fresh Foods",
+    countryCode: "FR",
+    emissions: [
+      { yearMonth: "2024-01", source: "fertilizer", emissions: 70.5 },
+      { yearMonth: "2024-02", source: "fertilizer", emissions: 85.7 },
+      { yearMonth: "2024-03", source: "fertilizer", emissions: 75.3 },
+      { yearMonth: "2024-04", source: "fertilizer", emissions: 65.9 },
+      { yearMonth: "2024-05", source: "fertilizer", emissions: 58.4 },
+      { yearMonth: "2024-06", source: "fertilizer", emissions: 48.1 },
+      { yearMonth: "2024-07", source: "fertilizer", emissions: 35.5 },
+      { yearMonth: "2024-08", source: "fertilizer", emissions: 45.8 },
+      { yearMonth: "2024-09", source: "fertilizer", emissions: 68.95 },
+      { yearMonth: "2024-10", source: "fertilizer", emissions: 88.05 },
+      { yearMonth: "2024-11", source: "fertilizer", emissions: 95.99 },
+      { yearMonth: "2024-12", source: "fertilizer", emissions: 90.2 },
+    ],
+  },
+  {
+    id: "c7",
+    name: "Ironclad Manufacturing",
+    countryCode: "CN",
+    emissions: [
+      { yearMonth: "2024-01", source: "coal", emissions: 425.8 },
+      { yearMonth: "2024-02", source: "coal", emissions: 375.4 },
+      { yearMonth: "2024-03", source: "coal", emissions: 330.6 },
+      { yearMonth: "2024-04", source: "coal", emissions: 290.1 },
+      { yearMonth: "2024-05", source: "coal", emissions: 250.9 },
+      { yearMonth: "2024-06", source: "coal", emissions: 235.75 },
+      { yearMonth: "2024-07", source: "coal", emissions: 210.15 },
+      { yearMonth: "2024-08", source: "coal", emissions: 255.3 },
+      { yearMonth: "2024-09", source: "coal", emissions: 340.2 },
+      { yearMonth: "2024-10", source: "coal", emissions: 390.55 },
+      { yearMonth: "2024-11", source: "coal", emissions: 410.7 },
+      { yearMonth: "2024-12", source: "coal", emissions: 420.9 },
+    ],
+  },
+  {
+    id: "c8",
+    name: "Synergy Global Logistics",
+    countryCode: "GB",
+    emissions: [
+      { yearMonth: "2024-01", source: "jet_fuel", emissions: 140.9 },
+      { yearMonth: "2024-02", source: "jet_fuel", emissions: 170.5 },
+      { yearMonth: "2024-03", source: "jet_fuel", emissions: 155.75 },
+      { yearMonth: "2024-04", source: "jet_fuel", emissions: 180.25 },
+      { yearMonth: "2024-05", source: "jet_fuel", emissions: 210.6 },
+      { yearMonth: "2024-06", source: "jet_fuel", emissions: 225.75 },
+      { yearMonth: "2024-07", source: "jet_fuel", emissions: 215.45 },
+      { yearMonth: "2024-08", source: "jet_fuel", emissions: 200.3 },
+      { yearMonth: "2024-09", source: "jet_fuel", emissions: 190.8 },
+      { yearMonth: "2024-10", source: "jet_fuel", emissions: 175.55 },
+      { yearMonth: "2024-11", source: "jet_fuel", emissions: 150.15 },
+      { yearMonth: "2024-12", source: "jet_fuel", emissions: 130.4 },
+    ],
+  },
+  {
+    id: "c9",
+    name: "Evergreen Financial Group",
+    countryCode: "AU",
+    emissions: [
+      { yearMonth: "2024-01", source: "heating_oil", emissions: 28.15 },
+      { yearMonth: "2024-02", source: "heating_oil", emissions: 35.8 },
+      { yearMonth: "2024-03", source: "heating_oil", emissions: 20.6 },
+      { yearMonth: "2024-04", source: "heating_oil", emissions: 15.4 },
+      { yearMonth: "2024-05", source: "heating_oil", emissions: 12.25 },
+      { yearMonth: "2024-06", source: "heating_oil", emissions: 10.1 },
+      { yearMonth: "2024-07", source: "heating_oil", emissions: 8.95 },
+      { yearMonth: "2024-08", source: "heating_oil", emissions: 14.3 },
+      { yearMonth: "2024-09", source: "heating_oil", emissions: 25.75 },
+      { yearMonth: "2024-10", source: "heating_oil", emissions: 33.95 },
+      { yearMonth: "2024-11", source: "heating_oil", emissions: 40.1 },
+      { yearMonth: "2024-12", source: "heating_oil", emissions: 38.05 },
+    ],
+  },
+  {
+    id: "c10",
+    name: "Quantum Data Solutions",
+    countryCode: "IN",
+    emissions: [
+      { yearMonth: "2024-01", source: "grid_power", emissions: 185.22 },
+      { yearMonth: "2024-02", source: "grid_power", emissions: 165.4 },
+      { yearMonth: "2024-03", source: "grid_power", emissions: 205.77 },
+      { yearMonth: "2024-04", source: "grid_power", emissions: 225.88 },
+      { yearMonth: "2024-05", source: "grid_power", emissions: 240.15 },
+      { yearMonth: "2024-06", source: "grid_power", emissions: 260.35 },
+      { yearMonth: "2024-07", source: "grid_power", emissions: 280.9 },
+      { yearMonth: "2024-08", source: "grid_power", emissions: 270.5 },
+      { yearMonth: "2024-09", source: "grid_power", emissions: 235.4 },
+      { yearMonth: "2024-10", source: "grid_power", emissions: 210.1 },
+      { yearMonth: "2024-11", source: "grid_power", emissions: 198.8 },
+      { yearMonth: "2024-12", source: "grid_power", emissions: 178.75 },
+    ],
+  },
+];

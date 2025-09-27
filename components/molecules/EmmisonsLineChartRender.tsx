@@ -3,7 +3,7 @@
 
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { lineChartDataDto } from "@/lib/mockupData";
+import { CompaniesLineChartDto, lineChartDataDto } from "@/lib/mockupData";
 import {
   AreaChart,
   Area,
@@ -16,7 +16,7 @@ import {
 import { colors } from "@/public/css/global.module";
 
 export interface Props {
-  data: lineChartDataDto[];
+  data: CompaniesLineChartDto[];
 }
 
 export default function EmmisonsLineChartRender({ data }: Props) {
@@ -34,12 +34,12 @@ export default function EmmisonsLineChartRender({ data }: Props) {
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
+            <XAxis dataKey="month" />
             <YAxis />
             <Tooltip />
             <Area
               type="monotone"
-              dataKey="uv"
+              dataKey="value"
               stroke={colors.green}
               fill={colors.green}
             />

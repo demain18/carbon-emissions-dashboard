@@ -1,13 +1,8 @@
-import {
-  CompaniesData,
-  CountriesData,
-  PostData,
-  PostDataDto,
-} from "./mockupData";
+import { Companies, Countries, PostData, PostDataDto } from "./mockupData";
 
 // lib/api.ts
-let _countries = [...CountriesData];
-let _companies = [...CompaniesData];
+let _countries = [...Countries];
+let _companies = [...Companies];
 let _posts = [...PostData];
 
 const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));

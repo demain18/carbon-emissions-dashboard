@@ -3,11 +3,17 @@
 
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { emmisionsDataDto } from "@/lib/mockupData";
+import {
+  emmisionsDataDto,
+  CompaniesDto,
+  Companies,
+  CompaniesPieChartDto,
+} from "@/lib/mockupData";
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
+import { useState } from "react";
 
 export interface Props {
-  data: emmisionsDataDto[];
+  data: CompaniesPieChartDto[];
 }
 
 export default function EmmisonsPieChartRender({ data }: Props) {
@@ -45,6 +51,7 @@ export default function EmmisonsPieChartRender({ data }: Props) {
         <PieChart>
           <Pie
             data={data}
+            // dataKey={(entry) => entry.emissions?.[1]?.emissions ?? 0}
             dataKey="value"
             nameKey="name"
             cx="50%"
