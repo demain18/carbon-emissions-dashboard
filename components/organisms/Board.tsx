@@ -5,9 +5,16 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import RText from "../atoms/RText";
 import { colors, Transition } from "@/public/css/global.module";
-import { PostData, postHeader } from "@/lib/mockupData";
+import {
+  PostData,
+  PostDataDto,
+  PostDataPreload,
+  postHeader,
+} from "@/lib/mockupData";
 import Modal from "./Modal";
 import useModalStore from "@/lib/basicStore";
+import { fetchPosts } from "@/lib/api";
+import { useEffect, useState } from "react";
 
 export interface Props {}
 
@@ -15,7 +22,23 @@ export default function PostTable({}: Props) {
   const { modalOpened, toggleModal } = useModalStore();
 
   const headers = [...postHeader];
-  const data = [...PostData];
+
+  const [data, setData] = useState<PostDataDto[]>(PostDataPreload);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const posts = await fetchPosts();
+        setData(posts);
+      } catch (e) {
+        console.error("데이터 로드 실패", e);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    loadData();
+  }, []);
 
   return (
     <Container>
@@ -49,7 +72,9 @@ export default function PostTable({}: Props) {
                 </Td>
                 <Td>
                   <RText sm color={colors.white50}>
-                    {post.content.substring(0, 30)}...
+                    {post.content === null
+                      ? post.content
+                      : post.content.substring(0, 30) + "..."}
                   </RText>
                 </Td>
               </TableRow>
@@ -92,7 +117,7 @@ const TableContainer = styled.div`
   width: 100%;
   background-color: ${colors.backgroundColor};
   border-radius: 8px;
-  max-height: 923px;
+  max-height: 900px;
   overflow-y: auto;
   ${scrollbarStyled}
 `;

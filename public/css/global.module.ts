@@ -10,6 +10,7 @@ export const colors = {
   white50: "#ffffff80",
   black: "#000000",
   buttonColor: "#506472",
+  lightGray: "#4A5A6B",
 };
 
 export type colorKeys = keyof typeof colors;

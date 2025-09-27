@@ -1,12 +1,13 @@
 /** @jsxImportSource @emotion/react */
+/** @jsxRuntime automatic */
 "use client";
 
-import { colorKeys, colors } from "@/public/css/global.module";
-import { css } from "@emotion/react";
+import { colors } from "@/public/css/global.module";
+import { css, keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 
 export interface Props {
-  children: React.ReactNode;
+  children?: React.ReactNode | null;
   bold?: boolean;
   h1?: boolean;
   h2?: boolean;
@@ -36,9 +37,12 @@ export default function RText({
   nonSelectDisabled = false,
   block = false,
 }: Props) {
+  const isChildrenNull = children === null || children === undefined;
+
   return (
     <TextContainer
       css={[
+        isChildrenNull && SkeletonStyle,
         bold && TextBold,
         h1 && TextH1,
         h2 && TextH2,
@@ -55,12 +59,22 @@ export default function RText({
         block && TextBlock,
       ]}
     >
-      {children}
+      {isChildrenNull ? (
+        <span
+          css={css`
+            display: inline-block;
+            width: 100%;
+          `}
+        >
+          &nbsp;
+        </span>
+      ) : (
+        children
+      )}
     </TextContainer>
   );
 }
 
-// Using 'styled.div' instead of 'CSS' means TextContainer was the mother element of this components.
 const TextContainer = styled.p`
   margin: 0;
   font-size: 16px;
@@ -69,7 +83,30 @@ const TextContainer = styled.p`
   color: ${colors.white};
 `;
 
-// All CSS values follow CamelCase naming rules to prevent confusion with React states.
+const shimmer = keyframes`
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+`;
+
+const SkeletonStyle = css`
+  color: ${colors.borderGray} !important;
+  min-height: 1.3em;
+  width: 100%;
+  display: block;
+  background: linear-gradient(
+    90deg,
+    ${colors.borderGray} 0%,
+    ${colors.lightGray} 50%,
+    ${colors.borderGray} 100%
+  );
+  background-size: 200% 100%;
+  animation: ${shimmer} 1.5s infinite linear;
+`;
+
 const TextBold = css`
   font-weight: 500;
 `;
@@ -88,10 +125,6 @@ const TextSmall = css`
 
 const TextExtraSmall = css`
   font-size: 10px;
-`;
-
-const TextDark = css`
-  color: black;
 `;
 
 const TextFamilyInter = css`
@@ -115,8 +148,8 @@ const TextBlock = css`
 `;
 
 const NonSelect = css`
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+ */
-  user-select: none; /* Standard */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `;

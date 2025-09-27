@@ -8,10 +8,10 @@ export const postHeader = [
 
 export interface PostDataDto {
   id: string;
-  title: string;
-  resourceUid: string; // Company.id
-  dateTime: string; // e.g., "2024-12"
-  content: string;
+  title: string | null;
+  resourceUid: string | null;
+  dateTime: string | null;
+  content: string | null;
 }
 
 export const PostData: PostDataDto[] = [
@@ -174,6 +174,79 @@ export const PostData: PostDataDto[] = [
     dateTime: "2023-05",
     content:
       "Internal preparatory audit and documentation review prior to the external assessment for ISO 14001 certification renewal.",
+  },
+];
+
+export const PostDataPreload: PostDataDto[] = [
+  {
+    id: "p001",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p002",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p003",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p004",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p005",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p006",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p007",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p008",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p009",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
+  },
+  {
+    id: "p010",
+    title: null,
+    resourceUid: null,
+    dateTime: null,
+    content: null,
   },
 ];
 
