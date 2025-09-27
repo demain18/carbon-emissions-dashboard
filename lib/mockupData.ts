@@ -167,6 +167,55 @@ export const PostDataPreload: PostDataDto[] = [
   },
 ];
 
+export const StatusDataPreload: StatusDataDto = {
+  daily: null,
+  monthly: null,
+  increased: null,
+};
+
+export const PieChartPreload: CompaniesPieChartDto[] = [
+  {
+    name: "",
+    value: 0,
+  },
+  {
+    name: "",
+    value: 0,
+  },
+  {
+    name: "",
+    value: 0,
+  },
+  {
+    name: "",
+    value: 0,
+  },
+  {
+    name: "",
+    value: 0,
+  },
+  {
+    name: "",
+    value: 0,
+  },
+  {
+    name: "",
+    value: 0,
+  },
+  {
+    name: "",
+    value: 0,
+  },
+  {
+    name: "",
+    value: 0,
+  },
+  {
+    name: "",
+    value: 0,
+  },
+];
+
 export const PostData: PostDataDto[] = [
   {
     id: "p001",
@@ -528,46 +577,3 @@ export const StatusData: StatusDataDto = {
   monthly: 1935.59,
   increased: 11.7,
 };
-
-export const PieChartPreload: CompaniesPieChartDto[] = [
-  {
-    name: "",
-    value: 0,
-  },
-  {
-    name: "",
-    value: 0,
-  },
-  {
-    name: "",
-    value: 0,
-  },
-  {
-    name: "",
-    value: 0,
-  },
-  {
-    name: "",
-    value: 0,
-  },
-  {
-    name: "",
-    value: 0,
-  },
-  {
-    name: "",
-    value: 0,
-  },
-  {
-    name: "",
-    value: 0,
-  },
-  {
-    name: "",
-    value: 0,
-  },
-  {
-    name: "",
-    value: 0,
-  },
-];

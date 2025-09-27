@@ -5,12 +5,12 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { BoxStyled } from "@/public/css/global.module";
 import RText from "../atoms/RText";
-import EmmisonsLineChartRender from "../molecules/EmmisonsLineChartRender";
+import EmissionsLineChartRender from "../molecules/EmissionsLineChartRender";
 import { Companies, CompaniesLineChartDto } from "@/lib/mockupData";
 
 export interface Props {}
 
-export default function EmmisonsLineChart({}: Props) {
+export default function EmissionsLineChart({}: Props) {
   const LineChartData: CompaniesLineChartDto[] = Companies.flatMap(
     (c) => c.emissions
   )
@@ -35,7 +35,7 @@ export default function EmmisonsLineChart({}: Props) {
     <Container>
       <RText>Monthly Emission Volume (in Tonnes)</RText>
       <ChartWrap>
-        <EmmisonsLineChartRender data={LineChartData} />
+        <EmissionsLineChartRender data={LineChartData} />
       </ChartWrap>
     </Container>
   );

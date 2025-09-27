@@ -17,7 +17,7 @@ export interface Props {
   data: CompaniesPieChartDto[];
 }
 
-export default function EmmisonsPieChartRender({ data }: Props) {
+export default function EmissionsPieChartRender({ data }: Props) {
   const RADIAN = Math.PI / 180;
 
   const renderCustomizedLabel = ({

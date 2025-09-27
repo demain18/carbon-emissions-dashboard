@@ -12,8 +12,8 @@ import {
   CompaniesPieChartDto,
   PieChartPreload,
 } from "@/lib/mockupData";
-import EmmisonsPieChartRender from "../molecules/EmmisonsPieChartRender";
-import EmmisonsPieChartCompany from "../molecules/EmmisonsPieChartCompany";
+import EmissionsPieChartRender from "../molecules/EmissionsPieChartRender";
+import EmissionsPieChartCompany from "../molecules/EmissionsPieChartCompany";
 import { useEffect, useState } from "react";
 import { fetchCompanies } from "@/lib/api";
 
@@ -47,12 +47,12 @@ export default function EmmisonsPieChart({}: Props) {
       <RText bold>Total Emmisions</RText>
       <FlexWrap>
         <ChartWrap>
-          <EmmisonsPieChartRender data={companiesData} />
+          <EmissionsPieChartRender data={companiesData} />
         </ChartWrap>
         <CompanyWrap>
           <CompanyContents>
             <RText bold>Companys</RText>
-            <EmmisonsPieChartCompany data={companiesData} />
+            <EmissionsPieChartCompany data={companiesData} />
           </CompanyContents>
         </CompanyWrap>
       </FlexWrap>

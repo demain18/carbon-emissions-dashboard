@@ -11,7 +11,7 @@ export interface Props {
   data: CompaniesPieChartDto[];
 }
 
-export default function EmmisonsPieChartCompany({ data }: Props) {
+export default function EmissionsPieChartCompany({ data }: Props) {
   return (
     <Container>
       {data.map((data, x) => (

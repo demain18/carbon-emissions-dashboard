@@ -7,17 +7,13 @@ import StatusBox from "../molecules/StatusBox";
 import StatusGraphBox from "../molecules/StatusGraphBox";
 import { mq } from "@/public/css/global.module";
 import { useEffect, useState } from "react";
-import { StatusDataDto } from "@/lib/mockupData";
+import { StatusDataDto, StatusDataPreload } from "@/lib/mockupData";
 import { fetchStatus } from "@/lib/api";
 
 export interface Props {}
 
 export default function Status({}: Props) {
-  const [data, setData] = useState<StatusDataDto>({
-    daily: null,
-    monthly: null,
-    increased: null,
-  });
+  const [data, setData] = useState<StatusDataDto>(StatusDataPreload);
 
   useEffect(() => {
     const loadData = async () => {

@@ -3,7 +3,7 @@
 
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { CompaniesLineChartDto, lineChartDataDto } from "@/lib/mockupData";
+import { CompaniesLineChartDto } from "@/lib/mockupData";
 import {
   AreaChart,
   Area,
@@ -19,7 +19,7 @@ export interface Props {
   data: CompaniesLineChartDto[];
 }
 
-export default function EmmisonsLineChartRender({ data }: Props) {
+export default function EmissionsLineChartRender({ data }: Props) {
   return (
     <Container>
       <ResponsiveContainer width="100%" height="100%">
