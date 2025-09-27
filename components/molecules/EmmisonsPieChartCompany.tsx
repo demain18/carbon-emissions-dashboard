@@ -5,10 +5,10 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import RText from "../atoms/RText";
 import { colors } from "@/public/css/global.module";
-import { emmisionsDataType } from "@/lib/mockupData";
+import { emmisionsDataDto } from "@/lib/mockupData";
 
 export interface Props {
-  data: emmisionsDataType[];
+  data: emmisionsDataDto[];
 }
 
 export default function EmmisonsPieChartCompany({ data }: Props) {

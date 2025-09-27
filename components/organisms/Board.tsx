@@ -2,6 +2,7 @@
 "use client";
 
 import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 import RText from "../atoms/RText";
 import { colors, Transition } from "@/public/css/global.module";
 import { postsData, postHeader } from "@/lib/mockupData";
@@ -64,10 +65,36 @@ const Container = styled.div`
   box-sizing: border-box;
 `;
 
+const scrollbarStyled = css`
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${colors.buttonColor};
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: ${colors.cardNavy};
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: ${colors.borderGray};
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: ${colors.buttonColor} ${colors.cardNavy};
+`;
+
 const TableContainer = styled.div`
   width: 100%;
   background-color: ${colors.backgroundColor};
   border-radius: 8px;
+  max-height: 923px;
+  overflow-y: auto;
+  ${scrollbarStyled}
 `;
 
 const Table = styled.table`

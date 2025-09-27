@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import StatusBox from "../molecules/StatusBox";
 import StatusGraphBox from "../molecules/StatusGraphBox";
+import { mq } from "@/public/css/global.module";
 
 export interface Props {}
 
@@ -23,9 +24,12 @@ export default function Status({}: Props) {
 }
 
 const Container = styled.div`
-  /* height: 90px; */
   display: flex;
   flex-direction: row;
-  gap: 40px;
   margin-bottom: 30px;
+  gap: 20px;
+
+  ${mq[0]} {
+    gap: 40px;
+  }
 `;

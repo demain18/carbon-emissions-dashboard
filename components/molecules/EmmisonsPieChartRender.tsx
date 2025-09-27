@@ -3,11 +3,11 @@
 
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { emmisionsDataType } from "@/lib/mockupData";
+import { emmisionsDataDto } from "@/lib/mockupData";
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 
 export interface Props {
-  data: emmisionsDataType[];
+  data: emmisionsDataDto[];
 }
 
 export default function EmmisonsPieChartRender({ data }: Props) {

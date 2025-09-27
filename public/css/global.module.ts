@@ -25,3 +25,7 @@ export const Transition = css`
   transition-duration: 0.105s;
   transition-timing-function: ease-in-out;
 `;
+
+const breakpoints = [1600, 992];
+
+export const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);

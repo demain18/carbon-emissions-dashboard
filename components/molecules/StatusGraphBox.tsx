@@ -38,7 +38,7 @@ export default function StatusGraphBox({ value, unit, tag }: Props) {
 const Container = styled.div`
   ${BoxStyled}
   width: 100%;
-  height: 100%;
+
   display: flex;
   flex-direction: column;
   gap: 17px;

@@ -3,7 +3,7 @@
 
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { lineChartDataType } from "@/lib/mockupData";
+import { lineChartDataDto } from "@/lib/mockupData";
 import {
   AreaChart,
   Area,
@@ -16,7 +16,7 @@ import {
 import { colors } from "@/public/css/global.module";
 
 export interface Props {
-  data: lineChartDataType[];
+  data: lineChartDataDto[];
 }
 
 export default function EmmisonsLineChartRender({ data }: Props) {

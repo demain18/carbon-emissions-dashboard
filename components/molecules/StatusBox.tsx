@@ -27,10 +27,12 @@ const Container = styled.div`
   ${BoxStyled}
 
   width: 100%;
-  height: 100%;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 17px;
+  justify-content: center;
   /* justify-content: space-between; */
   gap: 17px;
   padding: 20px;

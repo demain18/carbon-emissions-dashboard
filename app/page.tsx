@@ -4,7 +4,7 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import RText from "@/components/atoms/RText";
-import { colors } from "@/public/css/global.module";
+import { colors, mq } from "@/public/css/global.module";
 import React from "react";
 import Logo from "@/components/molecules/Logo";
 import StatusBox from "@/components/molecules/StatusBox";
@@ -62,6 +62,11 @@ const NavigationWrap = styled.div`
   width: 100px;
   height: 100%;
   flex-shrink: 0;
+  display: none;
+
+  ${mq[0]} {
+    display: block;
+  }
 `;
 
 const MainScreen = styled.div`
@@ -81,10 +86,14 @@ const LogoWrap = styled.div`
 const DashboardWrap = styled.div`
   ${Split}
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 0px 40px;
   gap: 40px;
   padding-bottom: 40px;
+
+  ${mq[0]} {
+    flex-direction: row;
+  }
 `;
 
 const BoardWrap = styled.div`
