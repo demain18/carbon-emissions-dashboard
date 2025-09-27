@@ -7,17 +7,13 @@ import RText from "../atoms/RText";
 import { colors } from "@/public/css/global.module";
 
 export interface Props {
-  year: number;
-  month: string;
-  day: number;
+  datetime: string;
 }
 
-export default function ModalDatetime({ year, month, day }: Props) {
+export default function ModalDatetime({ datetime }: Props) {
   return (
     <Container>
-      <RText color={colors.white50}>
-        {year}, {month}, {day}
-      </RText>
+      <RText color={colors.white50}>{datetime}</RText>
     </Container>
   );
 }

@@ -8,25 +8,25 @@ import { colors } from "@/public/css/global.module";
 import useModalStore from "@/lib/basicStore";
 import ModalHeader from "../molecules/ModalHeader";
 import ModalDatetime from "../molecules/ModalDatetime";
+import { PostData } from "@/lib/mockupData";
 
 export interface Props {}
 
 export default function Modal({}: Props) {
-  const { modalOpened, toggleModal } = useModalStore();
+  const { modalOpened, postSelected, toggleModal } = useModalStore();
 
   const handleModalClick = (e: React.MouseEvent) => {
     e.stopPropagation();
   };
 
+  const data = PostData[postSelected];
+
   return (
     <Backdrop onClick={toggleModal}>
       <ModalContainer onClick={handleModalClick}>
-        <ModalHeader
-          uploader="Ayaba Onile-Ire"
-          company="PowerTec Engineering"
-        />
-        <RText nonSelectDisabled>This is Modal</RText>
-        <ModalDatetime year={2025} month="April" day={25} />
+        <ModalHeader uploader="Unknown" company={data.resourceUid || ""} />
+        <RText nonSelectDisabled>{data.content || ""}</RText>
+        <ModalDatetime datetime={data.dateTime || ""} />
       </ModalContainer>
     </Backdrop>
   );

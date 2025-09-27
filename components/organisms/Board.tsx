@@ -19,7 +19,7 @@ import { useEffect, useState } from "react";
 export interface Props {}
 
 export default function PostTable({}: Props) {
-  const { modalOpened, toggleModal } = useModalStore();
+  const { modalOpened, toggleModal, selectPost } = useModalStore();
 
   const headers = [...postHeader];
 
@@ -40,6 +40,11 @@ export default function PostTable({}: Props) {
     loadData();
   }, []);
 
+  const openModal = (id: number) => {
+    toggleModal();
+    selectPost(id);
+  };
+
   return (
     <Container>
       <TableContainer>
@@ -56,8 +61,8 @@ export default function PostTable({}: Props) {
             </TableRow>
           </THead>
           <TBody>
-            {data.map((post) => (
-              <TableRow key={post.id} onClick={toggleModal}>
+            {data.map((post, x) => (
+              <TableRow key={x} onClick={() => openModal(x)}>
                 <Td>
                   <RText color={colors.white}>{post.id}</RText>
                 </Td>
