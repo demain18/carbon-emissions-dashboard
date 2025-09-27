@@ -3,11 +3,8 @@
 
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import RText from "@/components/atoms/RText";
 import { colors, mq } from "@/public/css/global.module";
-import React from "react";
 import Logo from "@/components/molecules/Logo";
-import StatusBox from "@/components/molecules/StatusBox";
 import Status from "@/components/organisms/Status";
 import Navigation from "@/components/organisms/Navigation";
 import Board from "@/components/organisms/Board";
