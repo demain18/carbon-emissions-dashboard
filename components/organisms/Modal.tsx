@@ -24,7 +24,10 @@ export default function Modal({}: Props) {
   return (
     <Backdrop onClick={toggleModal}>
       <ModalContainer onClick={handleModalClick}>
-        <ModalHeader uploader="Unknown" company={data.resourceUid || ""} />
+        <ModalHeader
+          uploader={data.title || ""}
+          company={data.resourceUid || ""}
+        />
         <RText nonSelectDisabled>{data.content || ""}</RText>
         <ModalDatetime datetime={data.dateTime || ""} />
       </ModalContainer>

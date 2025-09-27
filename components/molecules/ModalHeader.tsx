@@ -15,12 +15,12 @@ export interface Props {
 export default function ModalHeader({ uploader, company }: Props) {
   return (
     <Container>
-      <Image
+      {/* <Image
         src={"/images/user-profile.svg"}
         width={46}
         height={46}
         alt="writer_profile"
-      />
+      /> */}
       <InfoWrap>
         <RText bold>{uploader}</RText>
         <RText sm color={colors.white50}>
