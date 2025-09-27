@@ -31,7 +31,7 @@ export default function PostTable({}: Props) {
         const posts = await fetchPosts();
         setData(posts);
       } catch (e) {
-        console.error("데이터 로드 실패", e);
+        console.error("Data Loaded Failure", e);
       } finally {
         setIsLoading(false);
       }

@@ -21,7 +21,7 @@ export default function Status({}: Props) {
         const status = await fetchStatus();
         setData(status);
       } catch (e) {
-        console.error("데이터 로드 실패", e);
+        console.error("Data Loaded Failure", e);
       }
     };
     loadData();

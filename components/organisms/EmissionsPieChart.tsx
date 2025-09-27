@@ -36,7 +36,7 @@ export default function EmmisonsPieChart({}: Props) {
         });
         setCompaniesData(PieChartData);
       } catch (e) {
-        console.error("데이터 로드 실패", e);
+        console.error("Data Loaded Failure", e);
       }
     };
     loadData();

@@ -216,6 +216,57 @@ export const PieChartPreload: CompaniesPieChartDto[] = [
   },
 ];
 
+export const LineChartPreload: CompaniesLineChartDto[] = [
+  {
+    month: "2024-01",
+    value: 0,
+  },
+  {
+    month: "2024-02",
+    value: 0,
+  },
+  {
+    month: "2024-03",
+    value: 0,
+  },
+  {
+    month: "2024-04",
+    value: 0,
+  },
+  {
+    month: "2024-05",
+    value: 0,
+  },
+  {
+    month: "2024-06",
+    value: 0,
+  },
+  {
+    month: "2024-07",
+    value: 0,
+  },
+  {
+    month: "2024-08",
+    value: 0,
+  },
+  {
+    month: "2024-09",
+    value: 0,
+  },
+  {
+    month: "2024-10",
+    value: 0,
+  },
+  {
+    month: "2024-11",
+    value: 0,
+  },
+  {
+    month: "2024-12",
+    value: 0,
+  },
+];
+
 export const PostData: PostDataDto[] = [
   {
     id: "p001",
