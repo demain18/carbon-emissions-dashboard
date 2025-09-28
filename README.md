@@ -57,7 +57,7 @@ It looks a bit overcomplicated, but every Atom Component is encapsulated. It's e
 
 ## Emotion Styled and CSS Selector Separations
 
-I planned to separate the use of styled and CSS selectors of emotions to distinguish between parents' and children's styles.
+I planned to separate the use of styled and CSS selectors of emotions to distinguish between parents and parent's additional styles.
 
 - Styled is for the mother of the component who has a name for their styles. It means that styled components are for Layout things.
 
@@ -72,13 +72,9 @@ function Text(bold) {
 
 const TextContainer = styled.p`
   margin: 0;
-
   font-size: 16px;
-
   line-height: 1.3;
-
   font-weight: 400;
-
   color: white;
 `;
 
