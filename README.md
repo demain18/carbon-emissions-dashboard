@@ -254,3 +254,7 @@ const PopupFailedStyled = css`
 - Unit testing was excluded from implementation since I haven't experienced it in a real-world work environment.
 
 - Total time spent on Exercise was **20 hours**.
+
+### Demonstration video
+
+[Demonstration video link](https://drive.google.com/file/d/1ksHzqbUWv7XXeRPYYbY9m86SNgmQRHyQ/view?usp=sharing).
