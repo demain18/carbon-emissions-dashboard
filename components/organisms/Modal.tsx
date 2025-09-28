@@ -41,37 +41,70 @@ export default function Modal({}: Props) {
   };
 
   const SubmitClicked = () => {
-    const loadData = async () => {
-      const updatedPost = {
-        ...data,
-        title: titleValue,
-        content: contentValue,
+    if (postSelected === -1) {
+      const createPost = async () => {
+        const updatedPost = {
+          ...data,
+          title: titleValue,
+          content: contentValue,
+        };
+        try {
+          await createOrUpdatePost(updatedPost);
+          togglePopup(true);
+          setModalEditable(!modalEditable);
+          toggleModal();
+        } catch (e) {
+          togglePopup(false);
+        }
       };
-      try {
-        await createOrUpdatePost(updatedPost);
-        togglePopup(true);
-        setModalEditable(!modalEditable);
-        console.log("Update Success.");
-      } catch (e) {
-        togglePopup(false);
-        console.log("Update Failed.");
-      }
-    };
-    loadData();
+      createPost();
+    } else {
+      const updatePost = async () => {
+        const updatedPost = {
+          ...data,
+          title: titleValue,
+          content: contentValue,
+        };
+        try {
+          await createOrUpdatePost(updatedPost);
+          togglePopup(true);
+          setModalEditable(!modalEditable);
+          // console.log("Update Success.");
+        } catch (e) {
+          togglePopup(false);
+          // console.log("Update Failed.");
+        }
+      };
+      updatePost();
+    }
   };
 
   useEffect(() => {
-    const loadData = async () => {
-      try {
-        const postData = await fetchPosts();
-        setData(postData[postSelected]);
-        setTitleValue(postData[postSelected].title);
-        setContentValue(postData[postSelected].content);
-      } catch (e) {
-        console.error("Data Loaded Failure", e);
-      }
-    };
-    loadData();
+    if (postSelected === -1) {
+      setData({
+        ...data,
+        id: "create",
+        title: "Title Here",
+        resourceUid: "HanaLoop",
+        dateTime: "2025-09",
+        content: "Content Here",
+      });
+      setTitleValue(data.title);
+      setContentValue(data.content);
+      setModalEditable(true);
+    } else {
+      const loadPost = async () => {
+        try {
+          const postData = await fetchPosts();
+          setData(postData[postSelected]);
+          setTitleValue(postData[postSelected].title);
+          setContentValue(postData[postSelected].content);
+        } catch (e) {
+          console.error("Data Loaded Failure", e);
+        }
+      };
+      loadPost();
+    }
   }, [modalEditable]);
 
   return (

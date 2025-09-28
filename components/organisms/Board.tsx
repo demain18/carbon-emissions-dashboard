@@ -44,7 +44,7 @@ export default function PostTable({}: Props) {
       }
     };
     loadData();
-  }, [popupOpened]);
+  }, [modalOpened, popupOpened]);
 
   return (
     <Container>
@@ -118,7 +118,7 @@ const TableContainer = styled.div`
   width: 100%;
   background-color: ${colors.backgroundColor};
   border-radius: 8px;
-  max-height: 900px;
+  max-height: 890px;
   overflow-y: auto;
 `;
 

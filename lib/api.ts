@@ -41,11 +41,13 @@ export async function createOrUpdatePost(
 ) {
   await delay(jitter());
   if (maybeFail()) throw new Error("Save failed");
+  if (p.id === "create") {
+    const created = { ...p, id: crypto.randomUUID() };
+    _posts = [..._posts, created];
+    console.log(created, _posts);
+  }
   if (p.id) {
     _posts = _posts.map((x) => (x.id === p.id ? (p as CompaniesDto) : x));
     return p as CompaniesDto;
   }
-  const created = { ...p, id: crypto.randomUUID() };
-  _posts = [..._posts, created];
-  return created;
 }

@@ -13,6 +13,9 @@ import EmissionsLineChart from "@/components/organisms/EmissionsLineChart";
 import useModalStore from "@/lib/basicStore";
 import Modal from "@/components/organisms/Modal";
 import Popup from "@/components/organisms/Popup";
+import RButton from "@/components/atoms/RButton";
+import RText from "@/components/atoms/RText";
+import WritePost from "@/components/molecules/WritePost";
 
 export interface Props {}
 
@@ -34,6 +37,7 @@ export default function Page({ ...rest }: Props) {
           <BoardWrap>
             <Status />
             <Board />
+            <WritePost />
           </BoardWrap>
           <ChartWrap>
             <EmissionsPieChart />
