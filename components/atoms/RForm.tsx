@@ -48,7 +48,7 @@ const ResetFormStyled = css`
   box-sizing: border-box;
 
   resize: none;
-  overflow-y: hidden; /* 스크롤바가 깜빡이는 것을 방지 */
+  overflow-y: hidden;
   &:focus {
     border-color: ${colors.white};
     box-shadow: 0 0 0 1px ${colors.white};

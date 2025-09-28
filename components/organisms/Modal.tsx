@@ -41,8 +41,6 @@ export default function Modal({}: Props) {
   };
 
   const SubmitClicked = () => {
-    setModalEditable(!modalEditable);
-
     const loadData = async () => {
       const updatedPost = {
         ...data,
@@ -52,8 +50,11 @@ export default function Modal({}: Props) {
       try {
         await createOrUpdatePost(updatedPost);
         togglePopup(true);
+        setModalEditable(!modalEditable);
+        console.log("Update Success.");
       } catch (e) {
         togglePopup(false);
+        console.log("Update Failed.");
       }
     };
     loadData();

@@ -19,7 +19,7 @@ import { useEffect, useState } from "react";
 export interface Props {}
 
 export default function PostTable({}: Props) {
-  const { modalOpened, toggleModal, selectPost } = useModalStore();
+  const { modalOpened, popupOpened, toggleModal, selectPost } = useModalStore();
   const headers = [...PostHeader];
 
   const [data, setData] = useState<PostDataDto[]>(PostDataPreload);
@@ -44,7 +44,7 @@ export default function PostTable({}: Props) {
       }
     };
     loadData();
-  }, [modalOpened]);
+  }, [popupOpened]);
 
   return (
     <Container>

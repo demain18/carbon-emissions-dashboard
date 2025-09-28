@@ -23,7 +23,7 @@ const useModalStore = create<ModalState>((set) => ({
     set({ popupOpened: true, popupIsSuccessfulStyled: isSuccess });
     setTimeout(() => {
       set({ popupOpened: false, popupIsSuccessfulStyled: isSuccess });
-    }, 2000);
+    }, 1500);
   },
 }));
 
