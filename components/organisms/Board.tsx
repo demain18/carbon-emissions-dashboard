@@ -65,7 +65,9 @@ export default function PostTable({}: Props) {
             {data.map((post, x) => (
               <TableRow key={x} onClick={() => openModal(x)}>
                 <Td>
-                  <RText color={colors.white}>{post.id}</RText>
+                  <RText color={colors.white} sm>
+                    {post.id}
+                  </RText>
                 </Td>
                 <Td>
                   <RText color={colors.white}>{post.title}</RText>
@@ -114,11 +116,12 @@ const Container = styled.div`
   scrollbar-width: thin;
   scrollbar-color: ${colors.buttonColor} ${colors.cardNavy};
 `;
+
 const TableContainer = styled.div`
   width: 100%;
   background-color: ${colors.backgroundColor};
   border-radius: 8px;
-  max-height: 890px;
+  max-height: 865px;
   overflow-y: auto;
 `;
 
