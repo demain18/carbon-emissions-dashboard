@@ -20,7 +20,7 @@ This project has been developed by following Atomic-Pattern Design. Every Sectio
 
 app/page.tsx is not used for logic stuff, just for Organizing and Layout Components.
 
-![alt text](/carbon-emissions-dashboard/public/images/atomic.jpg)
+![alt text](https://github.com/demain18/carbon-emissions-dashboard/blob/main/public/images/atomic.jpg?raw=true)
 
 - **Model Section:** Injection data model from mockupData.ts containing Object of dataset.
 
@@ -124,9 +124,9 @@ setData(posts);
 
 Modal Component has flexibility that can change forms Readable to Editable in just one click.
 
-![alt text](/carbon-emissions-dashboard/public/images/2_1.jpeg)
+![alt text](https://github.com/demain18/carbon-emissions-dashboard/blob/main/public/images/2_1.jpeg?raw=true)
 
-![alt text](/carbon-emissions-dashboard/public/images/2_3.jpeg)
+![alt text](https://github.com/demain18/carbon-emissions-dashboard/blob/main/public/images/2_3.jpeg?raw=true)
 
 ## Skeleton Loading UI
 
