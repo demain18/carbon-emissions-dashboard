@@ -12,15 +12,17 @@ import EmissionsPieChart from "@/components/organisms/EmissionsPieChart";
 import EmissionsLineChart from "@/components/organisms/EmissionsLineChart";
 import useModalStore from "@/lib/basicStore";
 import Modal from "@/components/organisms/Modal";
+import Popup from "@/components/organisms/Popup";
 
 export interface Props {}
 
 export default function Page({ ...rest }: Props) {
-  const { modalOpened, toggleModal } = useModalStore();
+  const { modalOpened, toggleModal, popupOpened } = useModalStore();
 
   return (
     <Container>
       {modalOpened && <Modal />}
+      <Popup />
       <NavigationWrap>
         <Navigation />
       </NavigationWrap>

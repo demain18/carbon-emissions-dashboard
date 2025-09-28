@@ -12,6 +12,8 @@ export const colors = {
   buttonColor: "#506472",
   lightGray: "#4A5A6B",
   formBackground: "#001624",
+  success: "#1ebd7c",
+  failed: "#e04457",
 };
 
 export type colorKeys = keyof typeof colors;

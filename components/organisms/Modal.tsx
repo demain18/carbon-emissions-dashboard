@@ -15,7 +15,8 @@ import { createOrUpdatePost, fetchPosts } from "@/lib/api";
 export interface Props {}
 
 export default function Modal({}: Props) {
-  const { modalOpened, postSelected, toggleModal } = useModalStore();
+  const { modalOpened, postSelected, toggleModal, togglePopup } =
+    useModalStore();
   const [modalEditable, setModalEditable] = useState(false);
 
   const [data, setData] = useState<PostDataDto>(PostDataPreload[0]);
@@ -50,10 +51,9 @@ export default function Modal({}: Props) {
       };
       try {
         await createOrUpdatePost(updatedPost);
+        togglePopup(true);
       } catch (e) {
-        console.error("update Failure", e);
-      } finally {
-        // Popup
+        togglePopup(false);
       }
     };
     loadData();
