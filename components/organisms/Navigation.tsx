@@ -22,10 +22,13 @@ export default function Navigation({}: Props) {
   return (
     <Container>
       <Image
-        src={"/images/user-profile.svg"}
+        src={"/images/placeholder_person_2.svg"}
         width={44}
         height={44}
         alt="user_profile"
+        css={css`
+          border-radius: 100%;
+        `}
       />
       <Divider />
       <MenuWrap style={{ color: colors.buttonColor }}>
