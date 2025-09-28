@@ -2,7 +2,7 @@ import {
   Companies,
   Countries,
   PostData,
-  PostDataDto,
+  PostDataDto as CompaniesDto,
   StatusData,
 } from "./mockupData";
 
@@ -37,13 +37,13 @@ export async function fetchStatus() {
 }
 
 export async function createOrUpdatePost(
-  p: Omit<PostDataDto, "id"> & { id?: string }
+  p: Omit<CompaniesDto, "id"> & { id?: string }
 ) {
   await delay(jitter());
   if (maybeFail()) throw new Error("Save failed");
   if (p.id) {
-    _posts = _posts.map((x) => (x.id === p.id ? (p as PostDataDto) : x));
-    return p as PostDataDto;
+    _posts = _posts.map((x) => (x.id === p.id ? (p as CompaniesDto) : x));
+    return p as CompaniesDto;
   }
   const created = { ...p, id: crypto.randomUUID() };
   _posts = [..._posts, created];

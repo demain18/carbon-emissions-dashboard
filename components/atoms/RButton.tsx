@@ -9,12 +9,14 @@ export interface Props {
   children: React.ReactNode;
   padding?: [number, number];
   active?: boolean;
+  onClick?: () => void;
 }
 
 export default function RButton({
   children,
   padding = [10, 12],
   active,
+  onClick,
 }: Props) {
   return (
     <Container
@@ -24,6 +26,7 @@ export default function RButton({
         `,
         active && ButtonAcitve,
       ]}
+      onClick={onClick}
     >
       {children}
     </Container>
@@ -33,6 +36,7 @@ export default function RButton({
 const Container = styled.div`
   ${Transition}
   border-radius: 8px;
+  /* display: inline-block; */
 
   :hover {
     background-color: ${colors.activeCardNavy};

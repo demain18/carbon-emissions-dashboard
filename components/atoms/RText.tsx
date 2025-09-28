@@ -18,6 +18,7 @@ export interface Props {
   stick?: boolean;
   alignLeft?: boolean;
   alignRight?: boolean;
+  alignCenter?: boolean;
   nonSelectDisabled?: boolean;
   block?: boolean;
 }
@@ -34,6 +35,7 @@ export default function RText({
   stick,
   alignLeft = false,
   alignRight = false,
+  alignCenter = false,
   nonSelectDisabled = false,
   block = false,
 }: Props) {
@@ -55,6 +57,7 @@ export default function RText({
         stick && TextStick,
         alignLeft && TextAlignLeft,
         alignRight && TextAlignRight,
+        alignCenter && TextAlignCenter,
         nonSelectDisabled === false && NonSelect,
         block && TextBlock,
       ]}
@@ -141,6 +144,10 @@ const TextAlignLeft = css`
 
 const TextAlignRight = css`
   text-align: right;
+`;
+
+const TextAlignCenter = css`
+  text-align: center;
 `;
 
 const TextBlock = css`

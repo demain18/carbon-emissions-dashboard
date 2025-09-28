@@ -6,30 +6,107 @@ import { css } from "@emotion/react";
 import RText from "../atoms/RText";
 import { colors } from "@/public/css/global.module";
 import useModalStore from "@/lib/basicStore";
-import ModalHeader from "../molecules/ModalHeader";
-import ModalDatetime from "../molecules/ModalDatetime";
-import { PostData } from "@/lib/mockupData";
+import { PostData, PostDataDto, PostDataPreload } from "@/lib/mockupData";
+import RButton from "../atoms/RButton";
+import { useEffect, useState } from "react";
+import RForm from "../atoms/RForm";
+import { createOrUpdatePost, fetchPosts } from "@/lib/api";
 
 export interface Props {}
 
 export default function Modal({}: Props) {
   const { modalOpened, postSelected, toggleModal } = useModalStore();
+  const [modalEditable, setModalEditable] = useState(false);
+
+  const [data, setData] = useState<PostDataDto>(PostDataPreload[0]);
+
+  const [titleValue, setTitleValue] = useState(data.title);
+  const [contentValue, setContentValue] = useState(data.content);
 
   const handleModalClick = (e: React.MouseEvent) => {
     e.stopPropagation();
   };
 
-  const data = PostData[postSelected];
+  const handleTitleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setTitleValue(e.target.value);
+  };
+
+  const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setContentValue(e.target.value);
+  };
+
+  const EditClicked = () => {
+    setModalEditable(!modalEditable);
+  };
+
+  const SubmitClicked = () => {
+    setModalEditable(!modalEditable);
+
+    const loadData = async () => {
+      const updatedPost = {
+        ...data,
+        title: titleValue,
+        content: contentValue,
+      };
+      try {
+        await createOrUpdatePost(updatedPost);
+      } catch (e) {
+        console.error("update Failure", e);
+      } finally {
+        // Popup
+      }
+    };
+    loadData();
+  };
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const postData = await fetchPosts();
+        setData(postData[postSelected]);
+        setTitleValue(postData[postSelected].title);
+        setContentValue(postData[postSelected].content);
+      } catch (e) {
+        console.error("Data Loaded Failure", e);
+      }
+    };
+    loadData();
+  }, [modalEditable]);
 
   return (
     <Backdrop onClick={toggleModal}>
       <ModalContainer onClick={handleModalClick}>
-        <ModalHeader
-          uploader={data.title || ""}
-          company={data.resourceUid || ""}
-        />
-        <RText nonSelectDisabled>{data.content || ""}</RText>
-        <ModalDatetime datetime={data.dateTime || ""} />
+        <InfoWrap>
+          {modalEditable ? (
+            <RForm onChange={handleTitleChange} value={titleValue || ""} />
+          ) : (
+            <RText bold>{data.title}</RText>
+          )}
+          <RText sm color={colors.white50}>
+            {data.resourceUid}
+          </RText>
+        </InfoWrap>
+        {modalEditable ? (
+          <RForm onChange={handleContentChange} value={contentValue || ""} />
+        ) : (
+          <RText nonSelectDisabled>{data.content}</RText>
+        )}
+        <DatetimeWrap>
+          <RText color={colors.white50}>{data.dateTime}</RText>
+        </DatetimeWrap>
+        {modalEditable ? (
+          <RButton onClick={SubmitClicked}>
+            <RText color={colors.white} alignCenter>
+              Submit
+            </RText>
+          </RButton>
+        ) : (
+          <RButton onClick={EditClicked}>
+            <RText color={colors.white} alignCenter>
+              Edit
+            </RText>
+          </RButton>
+        )}
       </ModalContainer>
     </Backdrop>
   );
@@ -62,4 +139,16 @@ const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 17px;
+`;
+
+const InfoWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-content: center;
+`;
+
+const DatetimeWrap = styled.div`
+  display: flex;
+  flex-direction: row;
 `;

@@ -25,6 +25,13 @@ export default function PostTable({}: Props) {
   const [data, setData] = useState<PostDataDto[]>(PostDataPreload);
   const [isLoading, setIsLoading] = useState(true);
 
+  const openModal = (id: number) => {
+    if (isLoading === false) {
+      toggleModal();
+      selectPost(id);
+    }
+  };
+
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -37,14 +44,7 @@ export default function PostTable({}: Props) {
       }
     };
     loadData();
-  }, []);
-
-  const openModal = (id: number) => {
-    if (isLoading === false) {
-      toggleModal();
-      selectPost(id);
-    }
-  };
+  }, [modalOpened]);
 
   return (
     <Container>
@@ -93,10 +93,6 @@ export default function PostTable({}: Props) {
 }
 
 const Container = styled.div`
-  box-sizing: border-box;
-`;
-
-const scrollbarStyled = css`
   &::-webkit-scrollbar {
     width: 8px;
     height: 6px;
@@ -118,14 +114,12 @@ const scrollbarStyled = css`
   scrollbar-width: thin;
   scrollbar-color: ${colors.buttonColor} ${colors.cardNavy};
 `;
-
 const TableContainer = styled.div`
   width: 100%;
   background-color: ${colors.backgroundColor};
   border-radius: 8px;
   max-height: 900px;
   overflow-y: auto;
-  ${scrollbarStyled}
 `;
 
 const Table = styled.table`

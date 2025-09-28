@@ -32,7 +32,7 @@ export default function Navigation({}: Props) {
         <RText sm color={colors.white50}>
           Main
         </RText>
-        <RButton active>
+        <RButton>
           <House size={24} />
         </RButton>
         <RButton>
