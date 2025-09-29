@@ -33,8 +33,7 @@ app/page.tsx is not used for logic stuff, just for Organizing and Layout Compone
 The best of this Design Pattern is that it can be recycled for every component. For that flexibility and Scalability, Atom components have a lot of Props To respond to various situations, and avoid situations like creating another component to implement similar UI, just like what was there before.
 
 ```typescript
-// Atoms/RForms.tsx
-
+// Atoms/RText.tsx
 export interface Props {
   children?: React.ReactNode | null;
   bold?: boolean;
@@ -108,9 +107,9 @@ export const PostData: PostDataDto[] = [...]
 Also, have a side-effect to identify types on useState for binding Complicated Datatypes. It makes it easy to bind data from the api.ts fetch functions.
 
 ```typescript
-import { PostData, PostDataDto } from "@/lib/mockupData";
+import { PostDataPreload, PostDataDto } from "@/lib/mockupData";
 
-const [data, setData] = useState<PostDataDto[]>(PostData);
+const [data, setData] = useState<PostDataDto[]>(PostDataPreload);
 const posts = await fetchPosts();
 
 setData(posts);
