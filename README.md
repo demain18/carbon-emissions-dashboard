@@ -192,6 +192,7 @@ useEffect(() => {
 When implementing popups, simply determining display via React state makes applying transitions difficult. Therefore, we adopted a method where the component is always rendered but hidden off-screen, then exposed based on the boolean state value.
 
 ```typescript
+// Organisms/Popup.tsx
 export default function Popup({}: Props) {
   const { popupOpened, popupIsSuccessfulStyled } = useModalStore();
 
@@ -242,6 +243,23 @@ const PopupFailedStyled = css`
   border: 3px solid ${colors.failed};
   box-shadow: 0 0 50px ${colors.failed}80, 0 0 5px rgba(255, 255, 255, 0.7);
 `;
+
+// lib/basicStore.ts
+interface ModalState {
+  popupOpened: boolean;
+  popupIsSuccessfulStyled: boolean;
+  togglePopup: (isSuccess: boolean) => void;
+}
+const useModalStore = create<ModalState>((set) => ({
+  popupOpened: false,
+  popupIsSuccessfulStyled: true,
+  togglePopup: (isSuccess: boolean) => {
+    set({ popupOpened: true, popupIsSuccessfulStyled: isSuccess });
+    setTimeout(() => {
+      set({ popupOpened: false, popupIsSuccessfulStyled: isSuccess });
+    }, 1500);
+  },
+}));
 ```
 
 # Additional Thinkings
@@ -256,4 +274,4 @@ const PopupFailedStyled = css`
 
 ### Demonstration video
 
-[Demonstration video link](https://drive.google.com/file/d/1ksHzqbUWv7XXeRPYYbY9m86SNgmQRHyQ/view?usp=sharing).
+[Demonstration video link](https://drive.google.com/file/d/1ksHzqbUWv7XXeRPYYbY9m86SNgmQRHyQ/view?usp=sharing)
