@@ -262,16 +262,6 @@ const useModalStore = create<ModalState>((set) => ({
 }));
 ```
 
-# Additional Thinkings
-
-- Since there were no predefined mockups for the project, I actively utilized Figma's Free Template. Most UI Design tasks were surprisingly smooth thanks to the tool's capabilities.
-
-- AI-generated content accounted for less than 10% of the project, using the Gemini model. I reviewed all the code rather than just pasting it, so I can provide accurate explanations for every unit. (Except for the parts involving mathematical calculations)
-
-- Unit testing was excluded from implementation since I haven't experienced it in a real-world work environment.
-
-- Total time spent on Exercise was **20 hours**.
-
 ### Demonstration video
 
 [Demonstration video link](https://drive.google.com/file/d/1ksHzqbUWv7XXeRPYYbY9m86SNgmQRHyQ/view?usp=sharing)
